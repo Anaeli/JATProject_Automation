@@ -1,0 +1,8 @@
+<suite name="JATTestSuite">
+     <test name = "Login Test">
+            <classes>
+                 <class name="tests.TestSuit" />
+                 <class name="tests.LoginTest" />
+           </classes>
+      </test>
+</suite>
