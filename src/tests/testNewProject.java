@@ -1,38 +1,33 @@
 package tests;
 
-import java.util.concurrent.TimeUnit;
-
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import framework.common.SeleniumDriverManager;
 import framework.pages.Login;
-import framework.pages.UserStoryBoard;
-import framework.pages.project.CreateProject;
-
+import framework.pages.project.CreateProjectPage;
+import framework.pages.userStory.UserStoryBoardPage;
 
 public class testNewProject {
 	WebDriver driver;
-	CreateProject createProjectPage;
+	CreateProjectPage createProjectPage;
 	Login login;
-	UserStoryBoard userStoryBoardPage;
+	UserStoryBoardPage userStoryBoardPage;
 
-	@BeforeTest
-	public void setup(){
-        login = new Login();
-        login.loginIntoJAT("Eliana.Navia@fundacion-jala.org", "P@ssw0rd");
-        createProjectPage = new CreateProject();
-        userStoryBoardPage = new UserStoryBoard();
-     }
 	
 	@Test
 	public void testToVerifyIfAProjectIsCreated(){
-		
+		createProjectPage = new CreateProjectPage();
+        userStoryBoardPage = new UserStoryBoardPage();
 		String projectName= "myProject";
 		createProjectPage.createNewProject(projectName);
 		Assert.assertTrue(userStoryBoardPage.getNameProjectText().contains(projectName));
 	    }
+     
+	@Before
+	public void DeleteProject(){
+		userStoryBoardPage.clickDashboardLink();
+		
 
+	}
 }

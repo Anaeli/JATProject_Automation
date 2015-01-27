@@ -2,20 +2,26 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16263" started-at="2015-01-26T23:49:38Z" finished-at="2015-01-26T23:49:55Z">
+  <suite name="JATTestSuite" duration-ms="4911" started-at="2015-01-27T16:52:19Z" finished-at="2015-01-27T16:52:24Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16263" started-at="2015-01-26T23:49:38Z" finished-at="2015-01-26T23:49:55Z">
+    <test name="Login Test" duration-ms="4911" started-at="2015-01-27T16:52:19Z" finished-at="2015-01-27T16:52:24Z">
       <class name="tests.testNewProject">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.testNewProject@7cdbc5d3]" name="setup" is-config="true" duration-ms="12572" started-at="2015-01-26T19:49:38Z" finished-at="2015-01-26T19:49:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testToVerifyIfAProjectIsCreated()[pri:0, instance:tests.testNewProject@7cdbc5d3]" name="testToVerifyIfAProjectIsCreated" duration-ms="3670" started-at="2015-01-26T19:49:51Z" finished-at="2015-01-26T19:49:55Z">
+        <test-method status="PASS" signature="testToVerifyIfAProjectIsCreated()[pri:0, instance:tests.testNewProject@28f67ac7]" name="testToVerifyIfAProjectIsCreated" duration-ms="4891" started-at="2015-01-27T12:52:19Z" finished-at="2015-01-27T12:52:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testToVerifyIfAProjectIsCreated -->
       </class> <!-- tests.testNewProject -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="tests.testSuite">
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.testSuite@2aaf7cc2]" name="setup" is-config="true" duration-ms="11600" started-at="2015-01-27T12:52:08Z" finished-at="2015-01-27T12:52:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:tests.testSuite@2aaf7cc2]" name="logout" is-config="true" duration-ms="268" started-at="2015-01-27T12:52:24Z" finished-at="2015-01-27T12:52:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+      </class> <!-- tests.testSuite -->
+    </test> <!-- Login Test -->
+  </suite> <!-- JATTestSuite -->
 </testng-results>

@@ -11,12 +11,12 @@ import org.testng.annotations.Test;
 import dblayer.Project;
 import framework.common.SeleniumDriverManager;
 import framework.pages.Login;
-import framework.pages.project.Dashboard;
+import framework.pages.project.DashboardPage;
 
 public class testLogin {
 	WebDriver driver;
 	Login loginToJAT;
-    Dashboard<Project> dashboard;
+    DashboardPage<Project> dashboard;
 	
     @BeforeTest
 	public void setup(){
@@ -33,7 +33,7 @@ public class testLogin {
 		
     //Create Login Page object
     loginToJAT = new Login();
-    dashboard = new Dashboard<Project>();
+    dashboard = new DashboardPage<Project>();
  
     //login to application
     loginToJAT.loginIntoJAT(userEmail,userPassword);

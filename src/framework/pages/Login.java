@@ -3,22 +3,17 @@ package framework.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import framework.common.SeleniumDriverManager;
-import framework.pages.project.Dashboard;
-
+import framework.pages.project.DashboardPage;
 
 public class Login {
 	public WebDriver driver;
-	@FindBy(how = How.XPATH, using ="//input[@type='text']")
+	@FindBy(xpath = "//input[@type='text']")
 	WebElement userEmail;
-	
-	@FindBy(how = How.XPATH, using ="//input[@type='password']")
+	@FindBy(xpath = "//input[@type='password']")
 	WebElement userPassword;
-	
-	@FindBy(how = How.XPATH, using ="//input[@value='Sign in']")
+	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement login;
 	
 	public Login(){
@@ -26,8 +21,7 @@ public class Login {
         //This initElements method will create all WebElements
          PageFactory.initElements(driver, this);
          driver.get("http://172.20.8.22:3001");
- 
-    }
+     }
 
 	public void setUserEmail(String email){
 		 userEmail.sendKeys(email);
@@ -44,11 +38,14 @@ public class Login {
 		return userEmail.getText();
 	}
 	
-	public Dashboard loginIntoJAT(String userEmail, String userPassword){
+	public DashboardPage loginIntoJAT(String userEmail, String userPassword){
 	    setUserEmail(userEmail);
 	    setUserPassword(userPassword);
 	    clickLogin();
-	    return new Dashboard();
+	    return new DashboardPage();
 	}
 	
+	public void closeBrowser(){
+		SeleniumDriverManager.getManager().quitDriver();
+	}
 }
