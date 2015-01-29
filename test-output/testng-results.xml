@@ -1,27 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="JATTestSuite" duration-ms="4911" started-at="2015-01-27T16:52:19Z" finished-at="2015-01-27T16:52:24Z">
+  <suite name="JATTestSuite" duration-ms="18171" started-at="2015-01-28T22:57:37Z" finished-at="2015-01-28T22:57:55Z">
     <groups>
     </groups>
-    <test name="Login Test" duration-ms="4911" started-at="2015-01-27T16:52:19Z" finished-at="2015-01-27T16:52:24Z">
-      <class name="tests.testNewProject">
-        <test-method status="PASS" signature="testToVerifyIfAProjectIsCreated()[pri:0, instance:tests.testNewProject@28f67ac7]" name="testToVerifyIfAProjectIsCreated" duration-ms="4891" started-at="2015-01-27T12:52:19Z" finished-at="2015-01-27T12:52:24Z">
+    <test name="Login Test" duration-ms="18171" started-at="2015-01-28T22:57:37Z" finished-at="2015-01-28T22:57:55Z">
+      <class name="tests.VerifyIfProjectsAreCreated">
+        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="6151" started-at="2015-01-28T18:57:37Z" data-provider="projectData" finished-at="2015-01-28T18:57:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1234]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Powers of two: 0, 1, 2, 4, 8, 16]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testToVerifyIfAProjectIsCreated -->
-      </class> <!-- tests.testNewProject -->
-      <class name="tests.testSuite">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.testSuite@2aaf7cc2]" name="setup" is-config="true" duration-ms="11600" started-at="2015-01-27T12:52:08Z" finished-at="2015-01-27T12:52:19Z">
+        </test-method> <!-- testVerifyIfProjectsAreCreated -->
+        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="5048" started-at="2015-01-28T18:57:43Z" data-provider="projectData" finished-at="2015-01-28T18:57:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[12345]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="logout()[pri:0, instance:tests.testSuite@2aaf7cc2]" name="logout" is-config="true" duration-ms="268" started-at="2015-01-27T12:52:24Z" finished-at="2015-01-27T12:52:25Z">
+        </test-method> <!-- testVerifyIfProjectsAreCreated -->
+        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="5269" started-at="2015-01-28T18:57:48Z" data-provider="projectData" finished-at="2015-01-28T18:57:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Fibonacci: 0, 1, 2, 3, 5, 8, 13, 20, 40, 100]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerifyIfProjectsAreCreated -->
+      </class> <!-- tests.VerifyIfProjectsAreCreated -->
+      <class name="tests.TestSuite">
+        <test-method status="PASS" signature="init()[pri:0, instance:tests.TestSuite@649d209a]" name="init" is-config="true" duration-ms="11745" started-at="2015-01-28T18:57:25Z" finished-at="2015-01-28T18:57:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:tests.TestSuite@649d209a]" name="logout" is-config="true" duration-ms="1563" started-at="2015-01-28T18:57:55Z" finished-at="2015-01-28T18:57:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-      </class> <!-- tests.testSuite -->
+      </class> <!-- tests.TestSuite -->
+      <class name="tests.VerifyIfAProjectIsUpdated">
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.VerifyIfAProjectIsUpdated@23223dd8]" name="setup" is-config="true" duration-ms="0" started-at="2015-01-28T18:57:53Z" finished-at="2015-01-28T18:57:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="deleteProject()[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="deleteProject" is-config="true" duration-ms="1661" started-at="2015-01-28T18:57:53Z" finished-at="2015-01-28T18:57:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProject -->
+      </class> <!-- tests.VerifyIfAProjectIsUpdated -->
     </test> <!-- Login Test -->
   </suite> <!-- JATTestSuite -->
 </testng-results>
