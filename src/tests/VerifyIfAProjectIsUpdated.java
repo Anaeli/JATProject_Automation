@@ -3,44 +3,47 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import framework.pages.dashboard.DashboardPage;
+import framework.pages.dashboard.NewProjectForm;
+import framework.pages.project.ProjectPage;
 
-import framework.pages.project.DashboardPage;
-import framework.pages.project.NewProjectPage;
-import framework.pages.userStory.ProjectPage;
-
+/**
+ * This test case verifies that a project created is updated with the new information fill in the form.
+ * @author Eliana Navia
+ *
+ */
 public class VerifyIfAProjectIsUpdated {
-	DashboardPage objDashboard;
-	NewProjectPage objCreateProject;
-	ProjectPage objProject;
-	
-	/**
-	 * Preconditions a project create
-	 */
-	 @BeforeTest
-	 public void preconditions(){
-		 objCreateProject = new NewProjectPage();
-         objCreateProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
-         objProject.clickDashboardLink();
-	 }
+	public DashboardPage objDashboard;
+	public NewProjectForm objNewProject;
+	public ProjectPage objProject;
 
-	public void testVerifyIfAProjectIsUpdated(){
-		objCreateProject = new NewProjectPage();
+	/**
+	 * Preconditions a project created (in the first row of the project list)
+	 */
+	@BeforeTest
+	public void preconditions(){
+		objNewProject = new NewProjectForm();
+		objProject = new ProjectPage();
 		objDashboard = new DashboardPage();
-		
+		objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
+		objProject.clickDashboardLink();
+	}
+	/**
+	 * Update the first project. 
+	 */
+	@Test
+	public void testVerifyIfAProjectIsUpdated(){
 		String projectName = "1234";
 		String iterationLength = "2";
 		String usPointScale = "Fibonacci: 0, 1, 2, 3, 5, 8, 13, 20, 40, 100";
-		
-		objCreateProject.updateProject(projectName,iterationLength,usPointScale );
+		objNewProject.updateProject(projectName,iterationLength,usPointScale );
 		Assert.assertTrue(objDashboard.getProjectNameText().contains(projectName));
-		}
- 
-	/**
-	 * Postconditions delete project created    
-	 */
-	@AfterTest
-	    public void postcondiction(){
-	    	objDashboard.deleteProject();
-	    }
 	}
+
+	@AfterTest
+	public void postcondition(){
+		objDashboard.deleteProject();
+	}
+}
 

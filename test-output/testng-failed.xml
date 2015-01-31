@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [JATTestSuite]">
-  <test name="Login Test(failed)">
+  <test name="Projects(failed)">
     <classes>
+      <class name="tests.VerifyIfPlayersAreCreated">
+        <methods>
+          <include name="testVerifyIfPlayersAreCreated" invocation-numbers="0 1 2"/>
+          <include name="postconditions"/>
+          <include name="preconditions"/>
+        </methods>
+      </class> <!-- tests.VerifyIfPlayersAreCreated -->
       <class name="tests.TestSuite">
         <methods>
+          <include name="init"/>
           <include name="logout"/>
-          <include name="setup"/>
         </methods>
       </class> <!-- tests.TestSuite -->
-      <class name="tests.VerifyIfProjectsAreCreated">
-        <methods>
-          <include name="testVerifyIfProjectsAreCreated" invocation-numbers="0 1 2"/>
-        </methods>
-      </class> <!-- tests.VerifyIfProjectsAreCreated -->
     </classes>
-  </test> <!-- Login Test(failed) -->
+  </test> <!-- Projects(failed) -->
 </suite> <!-- Failed suite [JATTestSuite] -->

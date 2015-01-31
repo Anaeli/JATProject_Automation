@@ -1,96 +1,312 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="3" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="JATTestSuite" duration-ms="18171" started-at="2015-01-28T22:57:37Z" finished-at="2015-01-28T22:57:55Z">
+  <suite name="JATTestSuite" duration-ms="43160" started-at="2015-01-30T23:24:51Z" finished-at="2015-01-30T23:25:34Z">
     <groups>
     </groups>
-    <test name="Login Test" duration-ms="18171" started-at="2015-01-28T22:57:37Z" finished-at="2015-01-28T22:57:55Z">
-      <class name="tests.VerifyIfProjectsAreCreated">
-        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="6151" started-at="2015-01-28T18:57:37Z" data-provider="projectData" finished-at="2015-01-28T18:57:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1234]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Powers of two: 0, 1, 2, 4, 8, 16]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testVerifyIfProjectsAreCreated -->
-        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="5048" started-at="2015-01-28T18:57:43Z" data-provider="projectData" finished-at="2015-01-28T18:57:48Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[12345]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testVerifyIfProjectsAreCreated -->
-        <test-method status="PASS" signature="testVerifyIfProjectsAreCreated(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="testVerifyIfProjectsAreCreated" duration-ms="5269" started-at="2015-01-28T18:57:48Z" data-provider="projectData" finished-at="2015-01-28T18:57:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[123456]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[4]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Fibonacci: 0, 1, 2, 3, 5, 8, 13, 20, 40, 100]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testVerifyIfProjectsAreCreated -->
-      </class> <!-- tests.VerifyIfProjectsAreCreated -->
+    <test name="Projects" duration-ms="43160" started-at="2015-01-30T23:24:51Z" finished-at="2015-01-30T23:25:34Z">
       <class name="tests.TestSuite">
-        <test-method status="PASS" signature="init()[pri:0, instance:tests.TestSuite@649d209a]" name="init" is-config="true" duration-ms="11745" started-at="2015-01-28T18:57:25Z" finished-at="2015-01-28T18:57:37Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:tests.TestSuite@6debcae2]" name="init" is-config="true" duration-ms="16579" started-at="2015-01-30T19:24:34Z" finished-at="2015-01-30T19:24:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="logout()[pri:0, instance:tests.TestSuite@649d209a]" name="logout" is-config="true" duration-ms="1563" started-at="2015-01-28T18:57:55Z" finished-at="2015-01-28T18:57:57Z">
+        <test-method status="PASS" signature="logout()[pri:0, instance:tests.TestSuite@6debcae2]" name="logout" is-config="true" duration-ms="1788" started-at="2015-01-30T19:25:34Z" finished-at="2015-01-30T19:25:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
       </class> <!-- tests.TestSuite -->
-      <class name="tests.VerifyIfAProjectIsUpdated">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.VerifyIfAProjectIsUpdated@23223dd8]" name="setup" is-config="true" duration-ms="0" started-at="2015-01-28T18:57:53Z" finished-at="2015-01-28T18:57:53Z">
+      <class name="tests.VerifyIfPlayersAreCreated">
+        <test-method status="PASS" signature="preconditions()[pri:0, instance:tests.VerifyIfPlayersAreCreated@ea4a92b]" name="preconditions" is-config="true" duration-ms="3692" started-at="2015-01-30T19:24:51Z" finished-at="2015-01-30T19:24:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="deleteProject()[pri:0, instance:tests.VerifyIfProjectsAreCreated@16c0663d]" name="deleteProject" is-config="true" duration-ms="1661" started-at="2015-01-28T18:57:53Z" finished-at="2015-01-28T18:57:55Z">
+        </test-method> <!-- preconditions -->
+        <test-method status="FAIL" signature="testVerifyIfPlayersAreCreated(java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfPlayersAreCreated@ea4a92b]" name="testVerifyIfPlayersAreCreated" duration-ms="5918" started-at="2015-01-30T19:24:55Z" data-provider="projectData" finished-at="2015-01-30T19:25:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Player1@yopmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Team Member]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.InvalidSelectorException">
+            <message>
+              <![CDATA[The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+Command duration or timeout: 129 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+Command duration or timeout: 129 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy9.click(Unknown Source)
+	at framework.pages.project.ProjectPage.clickSubmitBtn(ProjectPage.java:47)
+	at framework.pages.project.ProjectPage.addPlayer(ProjectPage.java:54)
+	at tests.VerifyIfPlayersAreCreated.testVerifyIfPlayersAreCreated(VerifyIfPlayersAreCreated.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.InvalidSelectorException: The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.annotateInvalidSelectorError_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9615:1)
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9646:9)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9650:3)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11635:16)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11640:7)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11582:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteProject -->
-      </class> <!-- tests.VerifyIfAProjectIsUpdated -->
-    </test> <!-- Login Test -->
+        </test-method> <!-- testVerifyIfPlayersAreCreated -->
+        <test-method status="FAIL" signature="testVerifyIfPlayersAreCreated(java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfPlayersAreCreated@ea4a92b]" name="testVerifyIfPlayersAreCreated" duration-ms="30692" started-at="2015-01-30T19:25:01Z" data-provider="projectData" finished-at="2015-01-30T19:25:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Player2@yopmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Scrum Master]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.ElementNotVisibleException">
+            <message>
+              <![CDATA[Element is not currently visible and so may not be interacted with
+Command duration or timeout: 30.21 seconds
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Command duration or timeout: 30.21 seconds
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:50)
+	at com.sun.proxy.$Proxy9.clear(Unknown Source)
+	at framework.pages.project.ProjectPage.setEmailPlayer(ProjectPage.java:40)
+	at framework.pages.project.ProjectPage.addPlayer(ProjectPage.java:52)
+	at tests.VerifyIfPlayersAreCreated.testVerifyIfPlayersAreCreated(VerifyIfPlayersAreCreated.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:8959:12)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11618:15)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11635:11)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:548:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerifyIfPlayersAreCreated -->
+        <test-method status="FAIL" signature="testVerifyIfPlayersAreCreated(java.lang.String, java.lang.String)[pri:0, instance:tests.VerifyIfPlayersAreCreated@ea4a92b]" name="testVerifyIfPlayersAreCreated" duration-ms="2610" started-at="2015-01-30T19:25:31Z" data-provider="projectData" finished-at="2015-01-30T19:25:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Player3@yopmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Product Owner]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.InvalidSelectorException">
+            <message>
+              <![CDATA[The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+Command duration or timeout: 69 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+Command duration or timeout: 69 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=35.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: cc026812-82f7-4921-82e2-ccffd5870f69
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
+	at com.sun.proxy.$Proxy9.click(Unknown Source)
+	at framework.pages.project.ProjectPage.clickSubmitBtn(ProjectPage.java:47)
+	at framework.pages.project.ProjectPage.addPlayer(ProjectPage.java:54)
+	at tests.VerifyIfPlayersAreCreated.testVerifyIfPlayersAreCreated(VerifyIfPlayersAreCreated.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.InvalidSelectorException: The given selector //button[@type='submit is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: Unable to locate an element with the xpath expression //button[@type='submit because of the following error:
+SyntaxError: The expression is not a legal expression.
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
+System info: host: 'VDQADEV01-DN5OI', ip: '172.20.200.16', os.name: 'Windows Server 2012 R2', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.annotateInvalidSelectorError_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9615:1)
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9646:9)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9650:3)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11635:16)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11640:7)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/ELIANA~1/AppData/Local/Temp/2/anonymous4207615693823215552webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11582:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerifyIfPlayersAreCreated -->
+        <test-method status="PASS" signature="postconditions()[pri:0, instance:tests.VerifyIfPlayersAreCreated@ea4a92b]" name="postconditions" is-config="true" duration-ms="3" started-at="2015-01-30T19:25:34Z" finished-at="2015-01-30T19:25:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postconditions -->
+      </class> <!-- tests.VerifyIfPlayersAreCreated -->
+    </test> <!-- Projects -->
   </suite> <!-- JATTestSuite -->
 </testng-results>

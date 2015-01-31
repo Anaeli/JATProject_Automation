@@ -5,6 +5,11 @@ import org.testng.annotations.BeforeSuite;
 import framework.pages.Login;
 import framework.pages.Logout;
 
+/**
+ * 
+ * @author Eliana Navia
+ *
+ */
 public class TestSuite {	
 	Login objLogin;
 	Logout objLogout;

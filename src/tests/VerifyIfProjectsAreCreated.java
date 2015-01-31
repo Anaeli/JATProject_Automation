@@ -1,54 +1,73 @@
 package tests;
 
+import java.io.IOException;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import framework.pages.project.DashboardPage;
-import framework.pages.project.NewProjectPage;
-import framework.pages.userStory.ProjectPage;
+import framework.pages.dashboard.DashboardPage;
+import framework.pages.dashboard.NewProjectForm;
+import framework.pages.project.ProjectPage;
+import framework.util.ReadExcelFile;
 
 /**
- * Title: 
+ * This test case verifies that a project is created after the form is filled with valid information and saved.
  * 
  * @author Eliana Navia
  *
  */
 public class VerifyIfProjectsAreCreated {
-	DashboardPage objDashboard;
-	NewProjectPage objCreateProject;
-	ProjectPage objProject;
+	public DashboardPage objDashboard;
+	public NewProjectForm objCreateProject;
+	public ProjectPage objProject;
 
-	/**
-	 *
-	 * @return Object[][] where first column contains 'project name'
-	 * and second column contains 'iteration length'
-	 */
-	@DataProvider(name="projectData")
-	public Object[][] getDataFromDataprovider(){
 
-		return new Object[][] {
-				{"1234","2", "Powers of two: 0, 1, 2, 4, 8, 16"},
-				{"12345","3" , "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10"},
-				{"123456","4" , "Fibonacci: 0, 1, 2, 3, 5, 8, 13, 20, 40, 100"}
-		};
-	}
-
-	@Test(dataProvider="projectData")
-	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, String usPointScale){
-		objCreateProject = new NewProjectPage();
+	@BeforeTest
+	public void preconditions (){
+		objCreateProject = new NewProjectForm();
 		objProject = new ProjectPage();
 		objDashboard = new DashboardPage();
-		objCreateProject.createNewProject(projectName,iterationLength,usPointScale );
-		Assert.assertTrue(objProject.getNameProjectText().contains(projectName));
-		objProject.clickDashboardLink();
-		//objDashboard.deleteProject();
 	}
-	
-	@AfterTest
+
+	/**
+	 * Read the data of a excel file.
+	 * @return Object[][] where first column contains 'project name'
+	 * and second column contains 'iteration length'
+	 * @throws IOException
+	 */
+	@DataProvider(name="projectData")
+	public Object[][] getDataFromXlsx() throws IOException{
+		//Create a object of ReadExcelFile class
+		ReadExcelFile objExcelFile = new ReadExcelFile();
+		//Prepare the path of excel file
+		String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources";
+		//Call read file method of the class to read data
+		Object[][] data =objExcelFile.readExcel(filePath,"JATDataProvider.xlsx","ProjectData");
+		return data;
+	}
+
+	/**
+	 * Execute the TCs with data provide by a excel file.
+	 * @param projectName
+	 * @param iterationLength
+	 * @param usPointScale
+	 */
+	@Test(dataProvider="projectData")
+	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, String usPointScale){
+		objCreateProject.createNewProject(projectName,iterationLength,usPointScale );
+		//Verify if the project name is the same that the text displayed in the project page
+		Assert.assertTrue(objProject.getNameProjectText().contains(projectName));
+		//Return to dashboard page to start the test again .
+		//Postconditions
+		objProject.clickDashboardLink();
+		objDashboard.deleteProject(); //delete the project after it is created.
+	}
+
+	/**
+	 * This method only delete a project.
+	 * @AfterTest
 	public void deleteProject(){
 		objDashboard.deleteProject();
-	}
+	}*/
 }
 
