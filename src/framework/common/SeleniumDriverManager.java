@@ -58,7 +58,6 @@ public class SeleniumDriverManager
     {
         return wait;
     }
-    
     /**
      * Set to null the webdriver
      */

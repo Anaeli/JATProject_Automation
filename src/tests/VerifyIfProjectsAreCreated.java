@@ -21,7 +21,9 @@ public class VerifyIfProjectsAreCreated {
 	public NewProjectForm objCreateProject;
 	public ProjectPage objProject;
 
-
+	/**
+	 * Initialization of all classes used in the test
+	 */
 	@BeforeTest
 	public void preconditions (){
 		objCreateProject = new NewProjectForm();
@@ -32,7 +34,7 @@ public class VerifyIfProjectsAreCreated {
 	/**
 	 * Read the data of a excel file.
 	 * @return Object[][] where first column contains 'project name'
-	 * and second column contains 'iteration length'
+	 * second column contains 'iteration length', and the third 'Point Scale'
 	 * @throws IOException
 	 */
 	@DataProvider(name="projectData")

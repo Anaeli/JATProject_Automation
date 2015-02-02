@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import framework.common.SeleniumDriverManager;
+import framework.pages.dashboard.DashboardPage;
 
 /**
- * 
+ * User story board related to a project.
  * @author Eliana Navia
  *
  */
@@ -17,49 +19,78 @@ public class ProjectPage {
 	WebElement nameProject;
 	@FindBy(linkText ="DashBoard")
 	WebElement dashboardLink;
-	
-	//Elements to create a Player
+	//Expand the form to create a player
 	@FindBy( css = "span.fa.fa-user" )
 	WebElement addUserIcon;
-	@FindBy(id = "player-emailPlayer" )
-	WebElement emailPlayerField;
-	@FindBy(xpath = "//div[@id='addPlayer']/div/form/div[2]/select" )
-	WebElement rolePlayerComboBox;
-	@FindBy(xpath = "//button[@type='submit" )
-	WebElement submitBtn;
+	//To add a user story
+	@FindBy( id = "newUserStory_link" )
+	WebElement addUserStoryBtn;
+	//To verify the player name 
+	@FindBy( css = "div.panel.panel-itemPlayer > div.panel-heading > div.title2.ng-binding" )
+	WebElement playerName;
+	//To verify user story title 
+	@FindBy( xpath = "//div[contains(@class,'title ng-scope ng-binding')]")
+	WebElement userStoryTitle;
 	
+	/**
+	 * Initialize the web elements.
+	 */
 	public ProjectPage(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
-        PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver, this);
 	}
-	
-	public void clickAddUserIcon(){
+
+	/**
+	 * Expand the form to create a player.
+	 * @return PlayerForm 
+	 */
+	public PlayerForm clickAddUserIcon(){
 		addUserIcon.click();
+		return new PlayerForm();
 	}
-	public void setEmailPlayer(String emailPlayer){
-		emailPlayerField.clear();
-		emailPlayerField.sendKeys(emailPlayer);
-	}
-	public void setRolePlayer(String rolePlayer){
-		rolePlayerComboBox.sendKeys(rolePlayer);
-	}
-	public void clickSubmitBtn(){
-		submitBtn.click();
-	}
-	
-	public void addPlayer(String emailPlayer, String rolePlayer){
-		clickAddUserIcon();
-		setEmailPlayer(emailPlayer);
-		setRolePlayer(rolePlayer);
-		clickSubmitBtn();
-	}
-	
+
+	/**
+	 * Return the project name displayed in the top.
+	 * @return
+	 */
 	public String getNameProjectText(){
 		return nameProject.getText();
 	}
-	public void clickDashboardLink(){
-		dashboardLink.click();
+	/**
+	 * Return the player name of the first layout.
+	 * @return
+	 */
+	public String getPlayerNameText(){
+		return playerName.getText();
 	}
-//Drag and drop from Icebox pane to Backlog pane
-//Drag and drop from Icebox pane to Backlog pane
+	
+	/**
+	 * 
+	 * @return the user story title of the first layout.
+	 */
+	public String getUserStoryText(){
+		return userStoryTitle.getText();
+	}
+	/**
+	 * Click in the dashboard link displayed in the menu on the top right.
+	 * @return
+	 */
+	public DashboardPage clickDashboardLink(){
+		dashboardLink.click();
+		return new DashboardPage();
+	}
+	/**
+	 * Click "+ Add Story" button that expand the form to create a US.
+	 * @return UserStoryForm
+	 */
+	public UserStoryForm clickAddStoryBtn(){
+		addUserStoryBtn.click();
+		return new UserStoryForm();
+	}
+	/**
+	 * Refresh the page
+	 */
+	public void pageRefresh(){
+		driver.navigate().refresh();
+	}
 }

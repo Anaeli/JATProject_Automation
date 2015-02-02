@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import framework.common.SeleniumDriverManager;
 
 /**
+ * List of project that belong to a user, a project could be add, update and delete.
  * @author Eliana Navia
  */
 public class DashboardPage {
@@ -66,23 +67,23 @@ public class DashboardPage {
 		return this;
 	}
 	/**
-	 * Delete the first project of project list, work to delete a project based in its name.
+	 * Delete the first project of project list.
 	 */
 	public DashboardPage deleteProject(){
-		//xpath= "(//a[contains(text(), 'Delete')])[7])" @param pName, id
+		//xpath= "(//a[contains(text(), 'Delete')])[7])" @param pName, to delete a project based in its name.
 		clickDeleteLink();
 		return clickOkBtn();
 	}
 	/**
-	 * Return the user email.
-	 * @return
+	 * 
+	 * @return user email
 	 */
 	public String getLoginEmailText(){
 		return userEmail.getText();
 	}
 	/**
-	 * Return the project name.
-	 * @return
+	 *
+	 * @return project name of the first project in the list.
 	 */
 	public String getProjectNameText(){
 		return projectName.getText();

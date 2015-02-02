@@ -6,7 +6,7 @@ import framework.pages.Login;
 import framework.pages.Logout;
 
 /**
- * 
+ * Perform the login and logout once in the aplication.
  * @author Eliana Navia
  *
  */

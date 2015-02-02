@@ -40,7 +40,9 @@ public class VerifyIfAProjectIsUpdated {
 		objNewProject.updateProject(projectName,iterationLength,usPointScale );
 		Assert.assertTrue(objDashboard.getProjectNameText().contains(projectName));
 	}
-
+	/**
+	 * After the test is executed the project is deleted.
+	 */
 	@AfterTest
 	public void postcondition(){
 		objDashboard.deleteProject();

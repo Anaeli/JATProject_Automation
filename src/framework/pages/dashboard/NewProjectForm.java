@@ -9,7 +9,7 @@ import framework.pages.project.ProjectPage;
 
 /**
  * Create a new project.
- * Update a project created.
+ * Update a project created same form of create.
  * @author Eliana Navia
  *
  */
@@ -25,22 +25,36 @@ public class NewProjectForm {
 	@FindBy(css ="div.ng-scope > button.btn.btn-primary")
 	WebElement save;
 
+	/**
+	 * Initialize the driver and web elements. 
+	 */
 	public NewProjectForm(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
 		dashboardPage = new DashboardPage();
 	}
 
+	/**
+	 * Set the project name in the "Project name" field.
+	 * @param pName
+	 */
 	public void setProjectName(String pName){
 		projectName.click(); 
 		projectName.clear();
 		projectName.sendKeys(pName);
 	}
-
+	/**
+	 * Set the iteration length measure in weeks.
+	 * @param length
+	 */
 	public void setProjectLength(String length){
 		iterationLenght.click();
 		iterationLenght.sendKeys(length);
 	}
+	/**
+	 * Set the point to estimate the time of USs created in the project.
+	 * @param usPointScale
+	 */
 	public void setPointScale(String usPointScale){
 		pointScale.click();
 		pointScale.sendKeys(usPointScale);
@@ -49,7 +63,13 @@ public class NewProjectForm {
 		save.click();
 		return new ProjectPage();
 	}
-
+	/**
+	 * Steps to create a project.
+	 * @param projectName
+	 * @param iterationLength
+	 * @param pointScale
+	 * @return
+	 */
 	public ProjectPage createNewProject(String projectName, String iterationLength, String pointScale){
 		dashboardPage.clickNewProject();
 		setProjectName(projectName);

@@ -13,11 +13,11 @@ import framework.pages.dashboard.DashboardPage;
  */
 public class Login {
 	WebDriver driver;
-	//Username
+	//Username field
 	@FindBy(xpath = "//input[@type='text']")
 	WebElement userEmail;
 	@FindBy(xpath = "//input[@type='password']")
-	//Password
+	//Password field
 	WebElement userPassword;
 	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement signinBtn;
@@ -53,8 +53,8 @@ public class Login {
 		return new DashboardPage();
 	}
 	/**
-	 * Return the user email located in top right of the page.
-	 * @return
+	 * 
+	 * @return user email located in top right of the page.
 	 */
 	public String getLoginEmailText(){
 		return userEmail.getText();
@@ -76,4 +76,5 @@ public class Login {
 	public void closeBrowser(){
 		SeleniumDriverManager.getManager().quitDriver();
 	}
+	
 }
