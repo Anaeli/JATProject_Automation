@@ -1,34 +1,36 @@
 package tests;
 
 import java.io.IOException;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import framework.pages.dashboard.DashboardPage;
 import framework.pages.dashboard.NewProjectForm;
 import framework.pages.project.ProjectPage;
 import framework.util.ReadExcelFile;
 
 /**
- * This test case verifies that a project is created after the form is filled with valid information and saved.
+ * This test case verifies that a project is created after the form is filled
+ * with valid information and saved.
  * 
  * @author Eliana Navia
  *
  */
 public class VerifyIfProjectsAreCreated {
-	public DashboardPage objDashboard;
-	public NewProjectForm objCreateProject;
-	public ProjectPage objProject;
-
+	DashboardPage objDashboard = new DashboardPage();
+	NewProjectForm objCreateProject;
+	ProjectPage objProject;
+	
 	/**
 	 * Initialization of all classes used in the test
 	 */
-	@BeforeTest
+	@BeforeClass
 	public void preconditions (){
-		objCreateProject = new NewProjectForm();
-		objProject = new ProjectPage();
-		objDashboard = new DashboardPage();
+	 
 	}
 
 	/**
@@ -55,21 +57,23 @@ public class VerifyIfProjectsAreCreated {
 	 * @param usPointScale
 	 */
 	@Test(dataProvider="projectData")
-	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, String usPointScale){
-		objCreateProject.createNewProject(projectName,iterationLength,usPointScale );
+	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, 
+			String usPointScale){
+		objCreateProject = objDashboard.clickNewProject();
+		objProject = objCreateProject.createNewProject(projectName, iterationLength, usPointScale);
 		//Verify if the project name is the same that the text displayed in the project page
-		Assert.assertTrue(objProject.getNameProjectText().contains(projectName));
-		//Return to dashboard page to start the test again .
-		//Postconditions
-		objProject.clickDashboardLink();
-		objDashboard.deleteProject(); //delete the project after it is created.
+		Assert.assertTrue(objProject.getNameProjectText().contains(projectName));		
 	}
 
 	/**
 	 * This method only delete a project.
-	 * @AfterTest
+	 * 
+	 */
+	@AfterMethod
 	public void deleteProject(){
+		//Return to dashboard page to start the test again .
+		objDashboard = objProject.clickDashboardLink();
 		objDashboard.deleteProject();
-	}*/
+	}
 }
 

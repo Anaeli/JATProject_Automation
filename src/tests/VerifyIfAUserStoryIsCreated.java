@@ -1,8 +1,8 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -25,7 +25,7 @@ public class VerifyIfAUserStoryIsCreated {
 	/**
 	 * Preconditions a project created (in the first row of the project list)
 	 */
-	@BeforeTest
+	@BeforeClass
 	public void preconditions(){
 		objNewProject = new NewProjectForm();
 		objProject = new ProjectPage();
@@ -38,7 +38,7 @@ public class VerifyIfAUserStoryIsCreated {
 	 *
 	 * @return Object[][] where first column contains 'user story title'
 	 */
-	@DataProvider(name="userStoryData")
+	@DataProvider(name = "userStoryData")
 	public Object[][] getDataFromDataprovider(){
 		return new Object[][] {
 				{"User Story 1"},
@@ -46,11 +46,12 @@ public class VerifyIfAUserStoryIsCreated {
 				{"User Story 3"}
 		};
 	}
+
 	/**
 	 * Create a user story with the values of data provider.
 	 * @param userStoryTitle
 	 */
-	@Test(dataProvider="userStoryData")
+	@Test(dataProvider = "userStoryData")
 	public void testVerifyIfAUserStoryIsCreated(String userStoryTitle){
 		objUserStory.addNewUserStory(userStoryTitle);
 		Assert.assertTrue(objProject.getUserStoryText().contains(userStoryTitle));
@@ -59,7 +60,7 @@ public class VerifyIfAUserStoryIsCreated {
 	/**
 	 * After the test is executed the project where the USs were created is deleted.
 	 */
-	@AfterTest
+	@AfterClass
 	public void postconditions(){
 		objProject.clickDashboardLink();
 		objDashboard.deleteProject();

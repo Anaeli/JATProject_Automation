@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import framework.common.SeleniumDriverManager;
 
 /**
- * List of project that belong to a user, a project could be add, update and delete.
+ * List of projects that belong to a user, a project could be add, update and delete.
  * @author Eliana Navia
  */
 public class DashboardPage {
@@ -23,9 +23,9 @@ public class DashboardPage {
 	WebElement okBtn;
 	//Find elements to verifications
 	@FindBy(xpath ="//span[contains(@title, 'email')]")
-	WebElement userEmail;
+	WebElement userEmailText;
 	@FindBy(css ="div.title2")
-	WebElement projectName;
+	WebElement projectNameText;
 
 	/**
 	 * Initialize the driver and web elements. 
@@ -34,17 +34,18 @@ public class DashboardPage {
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	/**
-	 * Click in new project button.
+	 * Click on " + new project" button.
 	 * @return
 	 */
 	public NewProjectForm clickNewProject(){
 		newProjectBtn.click();
 		return new NewProjectForm();
 	}
+	
 	/**
-	 * Click in update project link.
+	 * Click on "update" project link.
 	 * @return
 	 */
 	public NewProjectForm clickUpdateProject(){
@@ -52,14 +53,15 @@ public class DashboardPage {
 		return new NewProjectForm();
 	}
 	/**
-	 * Click in delete project link.
+	 * Click on "Delete" project link.
 	 * @return
 	 */
 	public void clickDeleteLink(){
 		deleteProjectLink.click();
 	}
+	
 	/**
-	 * Click in OK button in the confirmation message to delete a project.
+	 * Click OK button in confirmation message displayed to delete a project.
 	 * @return Dashboard page
 	 */
 	public DashboardPage clickOkBtn(){
@@ -67,32 +69,35 @@ public class DashboardPage {
 		return this;
 	}
 	/**
-	 * Delete the first project of project list.
+	 * Delete the first project of projects list.
 	 */
 	public DashboardPage deleteProject(){
-		//xpath= "(//a[contains(text(), 'Delete')])[7])" @param pName, to delete a project based in its name.
+		//xpath= "(//a[contains(text(), 'Delete')])[7])", to delete a project based in its name.
 		clickDeleteLink();
 		return clickOkBtn();
 	}
+	
 	/**
-	 * 
+	 * Return the text of user email displayed on the top right of the page.
 	 * @return user email
 	 */
 	public String getLoginEmailText(){
-		return userEmail.getText();
+		return userEmailText.getText();
 	}
+	
 	/**
 	 *
-	 * @return project name of the first project in the list.
+	 * @return project name of first project of the list.
 	 */
 	public String getProjectNameText(){
-		return projectName.getText();
+		return projectNameText.getText();
 	}
+	
 	/**
 	 * Return true if project name is found in the dashboard page otherwise return false.
 	 * @return 
 	 */
 	public boolean isDisplayedProjectNameText(){
-		return projectName.isDisplayed();
+		return projectNameText.isDisplayed();
 	}
 }

@@ -12,9 +12,9 @@ import framework.common.SeleniumDriverManager;
  *
  */
 public class Logout {
-	public WebDriver driver;
-	@FindBy(xpath ="//div/span")
-	WebElement dropdown;
+	WebDriver driver;
+	@FindBy(xpath = "//div/span")
+	WebElement dropdownBtn;
 	@FindBy(linkText = "Logout")
 	WebElement logoutLink;
 
@@ -25,26 +25,29 @@ public class Logout {
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	/**
-	 * Expand the drop down located in top right of the page under user email text.
+	 * Expand the drop down located in top right of the page 
+	 * under user email text.
 	 */
-    public void clickDropdown(){
-    	dropdown.click();
-    }
-    
-    /**
-     * Click logout button
-     */
-    public void clickLogout(){
-    	logoutLink.click();
-    }
-    
-    /**
-     * Perform logout of the application
-     */
-    public void logout(){
-    	clickDropdown();
-    	clickLogout();
-    }
+	public void clickDropdown(){
+		dropdownBtn.click();
+	}
+
+	/**
+	 * Click on logout link expanded under user email text. 
+	 */
+	public void clickLogout(){
+		logoutLink.click();
+	}
+
+	/**
+	 * Perform logout of the application.
+	 * @return
+	 */
+	public Login logout(){
+		clickDropdown();
+		clickLogout();
+		return new Login();
+	}
 }

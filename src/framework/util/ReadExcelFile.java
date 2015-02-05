@@ -9,11 +9,15 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * Class to read excels files, use poi library.
+ *
+ */
 public class ReadExcelFile {
 
 	@SuppressWarnings("resource")
-	public Object[][] readExcel(String filePath,String fileName,String sheetName) throws IOException{
-
+	public Object[][] readExcel(String filePath,String fileName,String sheetName) 
+			throws IOException{
 		//Create a object of File class to open xlsx file
 		File file =    new File(filePath+"\\"+fileName);
 		//Create an object of FileInputStream class to read excel file
@@ -41,8 +45,8 @@ public class ReadExcelFile {
 			Row row = jatSheet.getRow(i);
 			//Create a loop to print cell values in a row
 			for (int j = 0; j < row.getLastCellNum(); j++) {
-				//Print excel data in console
 				data[i][j] = row.getCell(j).getStringCellValue();
+				//Print excel data in console
 				//System.out.println(row.getCell(j).getStringCellValue());
 			}
 		}

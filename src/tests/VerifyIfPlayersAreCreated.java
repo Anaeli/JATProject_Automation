@@ -1,9 +1,9 @@
 package tests;
 
-import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 
 import framework.pages.dashboard.DashboardPage;
@@ -25,7 +25,7 @@ public class VerifyIfPlayersAreCreated {
 	/**
 	 * Preconditions a project created (in the first row of the project list)
 	 */
-	@BeforeTest
+	@BeforeClass
 	public void preconditions(){
 		objNewProject = new NewProjectForm();
 		objProject = new ProjectPage();
@@ -47,22 +47,24 @@ public class VerifyIfPlayersAreCreated {
 				{"Player3@yopmail.com", "Product Owner"}
 		};
 	}
+
 	/**
 	 * Verify is the player are created successfully, 3 players should be created.
 	 * @param emailPlayer
 	 * @param rolePlayer
 	 */
 	@Test(dataProvider="playerData")
-	public void testVerifyIfPlayersAreCreated(String emailPlayer,String rolePlayer){
-		objPlayer.addPlayer(emailPlayer, rolePlayer);
+	public void testVerifyIfPlayersAreCreated(String emailPlayer,String rolePlayer){	
+		objPlayer = objProject.clickAddUserIcon();
+		objProject = objPlayer.addPlayer(emailPlayer, rolePlayer);
 		objProject.pageRefresh();
 		Assert.assertTrue(objProject.getPlayerNameText().contains(emailPlayer));
-
 	}
+
 	/**
 	 * After the test is executed the project where the players were created is deleted.
 	 */
-	@AfterTest
+	@AfterClass
 	public void postconditions(){
 		objProject.clickDashboardLink();
 		objDashboard.deleteProject();

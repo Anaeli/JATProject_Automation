@@ -6,19 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import framework.common.SeleniumDriverManager;
 import framework.pages.dashboard.DashboardPage;
+
 /**
- * To sign in JAT 
+ * Form to sign in on JAT 
  * @author Eliana Navia
  *
  */
 public class Login {
 	WebDriver driver;
-	//Username field
 	@FindBy(xpath = "//input[@type='text']")
-	WebElement userEmail;
+	WebElement userEmailTextBox;
 	@FindBy(xpath = "//input[@type='password']")
-	//Password field
-	WebElement userPassword;
+	WebElement userPasswordTextBox;
 	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement signinBtn;
 
@@ -30,37 +29,41 @@ public class Login {
 		PageFactory.initElements(driver, this);
 		driver.get("http://172.20.8.22:3001");
 	}
+
 	/**
-	 * Set the user email field with the data provide by the user in the sign in form.
+	 * Set user email field in the "Sign in" form.
 	 * @param email
 	 */
 	public void setUserEmail(String email){
-		userEmail.sendKeys(email);
+		userEmailTextBox.sendKeys(email);
 	}
+
 	/**
-	 * Set the password field with the data provide by the user in the sign in form.
+	 * Set the password field  in the "sign in" form.
 	 * @param password
 	 */
 	public void setUserPassword(String password){
-		userPassword.sendKeys(password);
+		userPasswordTextBox.sendKeys(password);
 	}
 	/**
-	 * Click in the "Sign in" button this display the dashboard page.
-	 * @return
+	 * Click in the "Sign in" button.
+	 * @return DashboardPage
 	 */
 	public DashboardPage clickSigninBtn(){
 		signinBtn.click();
 		return new DashboardPage();
 	}
+
 	/**
 	 * 
-	 * @return user email located in top right of the page.
+	 * @return user email text located in top right of the page.
 	 */
 	public String getLoginEmailText(){
-		return userEmail.getText();
+		return userEmailTextBox.getText();
 	}
+
 	/**
-	 * Login into JAT, displayed the dashboard page.
+	 * Login into JAT, displayed dashboard page.
 	 * @param userEmail
 	 * @param userPassword
 	 * @return
@@ -70,11 +73,11 @@ public class Login {
 		setUserPassword(userPassword);
 		return clickSigninBtn();	
 	}
+
 	/**
 	 * Close the browser.
 	 */
 	public void closeBrowser(){
 		SeleniumDriverManager.getManager().quitDriver();
 	}
-	
 }

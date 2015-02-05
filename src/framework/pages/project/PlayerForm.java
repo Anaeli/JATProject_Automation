@@ -17,7 +17,7 @@ public class PlayerForm {
 	public ProjectPage objProject;
 	//Elements to create a Player
 	@FindBy(id = "player-emailPlayer" )
-	WebElement emailPlayerField;
+	WebElement emailPlayerTextBox;
 	@FindBy(xpath = "//div[@id='addPlayer']/div/form/div[2]/select" )
 	WebElement rolePlayerComboBox;
 	@FindBy(xpath = "//button[@type='submit']" )
@@ -31,14 +31,16 @@ public class PlayerForm {
 		PageFactory.initElements(driver, this);
 		objProject = new ProjectPage();
 	}
+
 	/**
 	 * Set the email player with the value insert by the user.
 	 * @param emailPlayer
 	 */
 	public void setEmailPlayer(String emailPlayer){
-		emailPlayerField.clear();
-		emailPlayerField.sendKeys(emailPlayer);
+		emailPlayerTextBox.clear();
+		emailPlayerTextBox.sendKeys(emailPlayer);
 	}
+
 	/**
 	 * Set the role player (Team Member, Scrum Master, Stakeholder)
 	 * @param rolePlayer
@@ -47,22 +49,23 @@ public class PlayerForm {
 		rolePlayerComboBox.click();
 		rolePlayerComboBox.sendKeys(rolePlayer);
 	}
+
 	/**
-	 * Click in the submit button to save the values inserted in the form.
+	 * Click in "Submit" button to save the values inserted in the form.
 	 * @return
 	 */
 	public ProjectPage clickSubmitBtn(){
 		submitBtn.click();
 		return new ProjectPage();
 	}
-/**
- * Steps to add a player in the project.
- * @param emailPlayer
- * @param rolePlayer
- * @return
- */
+
+	/**
+	 * Steps to add a player in the project.
+	 * @param emailPlayer
+	 * @param rolePlayer
+	 * @return
+	 */
 	public ProjectPage addPlayer(String emailPlayer, String rolePlayer){
-		objProject.clickAddUserIcon();
 		setEmailPlayer(emailPlayer);
 		setRolePlayer(rolePlayer);
 		return clickSubmitBtn();

@@ -1,0 +1,8 @@
+<suite name="JATTestSuite">
+     <test name = "Projects">
+            <classes>
+                <class name="tests.TestSuite"/>   
+                <class name="tests.VerifyIfProjectsAreCreated" />   
+           </classes>
+      </test>
+</suite>

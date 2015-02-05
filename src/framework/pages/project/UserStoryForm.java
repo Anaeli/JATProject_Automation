@@ -16,7 +16,7 @@ public class UserStoryForm {
 	public ProjectPage objProject;
 	WebDriver driver;
 	@FindBy(id = "us-title")
-	WebElement userStoryTitleField;
+	WebElement userStoryTitleTextBox;
 	@FindBy(id = "createUS")
 	WebElement createUSBtn;
 
@@ -28,16 +28,14 @@ public class UserStoryForm {
 		PageFactory.initElements(driver, this);
 		objProject = new ProjectPage();
 	}
-	/**
-	 * Set the user story title.
-	 * @param userStoryTitle
-	 */
+
 	public void setUserStoryTitle(String userStoryTitle){
-		userStoryTitleField.clear();
-		userStoryTitleField.sendKeys(userStoryTitle);
+		userStoryTitleTextBox.clear();
+		userStoryTitleTextBox.sendKeys(userStoryTitle);
 	}
+
 	/**
-	 * Click in the "Create" button this collapse the form.
+	 * Click in "Create" button, collapsed the form.
 	 * @return
 	 */
 	public ProjectPage clickCreateUSBtn(){
@@ -55,6 +53,4 @@ public class UserStoryForm {
 		setUserStoryTitle(userStoryTitle);
 		return clickCreateUSBtn();
 	}
-
-
 }

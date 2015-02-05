@@ -1,3 +1,4 @@
+
 package framework.pages.project;
 
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ import framework.pages.dashboard.DashboardPage;
 public class ProjectPage {
 	WebDriver driver;
 	@FindBy(css ="div.project-name.ng-binding")
-	WebElement nameProject;
+	WebElement nameProjectTextBox;
 	@FindBy(linkText ="DashBoard")
 	WebElement dashboardLink;
 	//Expand the form to create a player
@@ -26,11 +27,11 @@ public class ProjectPage {
 	@FindBy( id = "newUserStory_link" )
 	WebElement addUserStoryBtn;
 	//To verify the player name 
-	@FindBy( css = "div.panel.panel-itemPlayer > div.panel-heading > div.title2.ng-binding" )
-	WebElement playerName;
+	@FindBy( css = "div.panel.panel-itemPlayer > div.panel-heading > div.title2.ng-binding")
+	WebElement playerNameText;
 	//To verify user story title 
 	@FindBy( xpath = "//div[contains(@class,'title ng-scope ng-binding')]")
-	WebElement userStoryTitle;
+	WebElement userStoryTitleText;
 	
 	/**
 	 * Initialize the web elements.
@@ -54,14 +55,15 @@ public class ProjectPage {
 	 * @return
 	 */
 	public String getNameProjectText(){
-		return nameProject.getText();
+		return nameProjectTextBox.getText();
 	}
+	
 	/**
 	 * Return the player name of the first layout.
 	 * @return
 	 */
 	public String getPlayerNameText(){
-		return playerName.getText();
+		return playerNameText.getText();
 	}
 	
 	/**
@@ -69,8 +71,9 @@ public class ProjectPage {
 	 * @return the user story title of the first layout.
 	 */
 	public String getUserStoryText(){
-		return userStoryTitle.getText();
+		return userStoryTitleText.getText();
 	}
+	
 	/**
 	 * Click in the dashboard link displayed in the menu on the top right.
 	 * @return
@@ -79,6 +82,7 @@ public class ProjectPage {
 		dashboardLink.click();
 		return new DashboardPage();
 	}
+	
 	/**
 	 * Click "+ Add Story" button that expand the form to create a US.
 	 * @return UserStoryForm
@@ -87,6 +91,7 @@ public class ProjectPage {
 		addUserStoryBtn.click();
 		return new UserStoryForm();
 	}
+	
 	/**
 	 * Refresh the page
 	 */
