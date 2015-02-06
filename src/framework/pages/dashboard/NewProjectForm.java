@@ -40,7 +40,7 @@ public class NewProjectForm {
 		projectNameTextBox.clear();
 		projectNameTextBox.sendKeys(projectName);
 	}
-	
+
 	/**
 	 * Set the iteration length measure in weeks.
 	 * @param iterationLength
@@ -49,7 +49,7 @@ public class NewProjectForm {
 		iterationLenghtField.click();
 		iterationLenghtField.sendKeys(iterationLength);
 	}
-	
+
 	/**
 	 * Set the point to estimate the effort of USs.
 	 * @param usPointScale
@@ -58,7 +58,7 @@ public class NewProjectForm {
 		pointScaleField.click();
 		pointScaleField.sendKeys(usPointScale);
 	}
-	
+
 	/**
 	 * "Save" button in "New project" form, return Dashboard page.
 	 * "Update" button when a project is updated, return Project page.
@@ -66,12 +66,12 @@ public class NewProjectForm {
 	public void clickSaveProject(){
 		saveBtn.click();	
 	}
-	
+
 	/**
 	 * Steps to create a project.
 	 * @param projectName
 	 * @param iterationLength
-	 * @param pointScale
+	 * @param pointScale to estimate the user story effort.
 	 * @return
 	 */
 	public ProjectPage createNewProject(String projectName, String iterationLength,
@@ -82,7 +82,7 @@ public class NewProjectForm {
 		clickSaveProject();
 		return new ProjectPage();
 	}
-	
+
 	/**
 	 * All locators to create and update are the same, the method reuse these.
 	 * The link, and the return are different.

@@ -8,13 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 import framework.common.SeleniumDriverManager;
 
 /**
- * Form to create, update and delete a player.
+ * Form to create a player.
  * @author Eliana Navia
  *
  */
 public class PlayerForm {
 	WebDriver driver;
-	
+
 	//Elements to create a Player
 	@FindBy(id = "player-emailPlayer" )
 	WebElement emailPlayerTextBox;
