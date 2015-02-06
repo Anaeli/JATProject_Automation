@@ -24,13 +24,13 @@ public class VerifyIfProjectsAreCreated {
 	DashboardPage objDashboard = new DashboardPage();
 	NewProjectForm objCreateProject;
 	ProjectPage objProject;
-	
+
 	/**
 	 * Initialization of all classes used in the test
 	 */
 	@BeforeClass
 	public void preconditions (){
-	 
+
 	}
 
 	/**
@@ -41,10 +41,13 @@ public class VerifyIfProjectsAreCreated {
 	 */
 	@DataProvider(name="projectData")
 	public Object[][] getDataFromXlsx() throws IOException{
+		
 		//Create a object of ReadExcelFile class
 		ReadExcelFile objExcelFile = new ReadExcelFile();
+		
 		//Prepare the path of excel file
 		String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources";
+		
 		//Call read file method of the class to read data
 		Object[][] data =objExcelFile.readExcel(filePath,"JATDataProvider.xlsx","ProjectData");
 		return data;
@@ -61,8 +64,10 @@ public class VerifyIfProjectsAreCreated {
 			String usPointScale){
 		objCreateProject = objDashboard.clickNewProject();
 		objProject = objCreateProject.createNewProject(projectName, iterationLength, usPointScale);
+		String actualProjectName = objProject.getNameProjectText();
+
 		//Verify if the project name is the same that the text displayed in the project page
-		Assert.assertTrue(objProject.getNameProjectText().contains(projectName));		
+		Assert.assertEquals(actualProjectName, projectName);
 	}
 
 	/**
@@ -71,6 +76,7 @@ public class VerifyIfProjectsAreCreated {
 	 */
 	@AfterMethod
 	public void deleteProject(){
+		
 		//Return to dashboard page to start the test again .
 		objDashboard = objProject.clickDashboardLink();
 		objDashboard.deleteProject();

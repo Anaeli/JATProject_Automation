@@ -15,19 +15,17 @@ import framework.pages.project.ProjectPage;
  *
  */
 public class VerifyIfAProjectIsUpdated {
-	public DashboardPage objDashboard;
-	public NewProjectForm objNewProject;
-	public ProjectPage objProject;
+	DashboardPage objDashboard = new DashboardPage();
+	NewProjectForm objNewProject;
+	ProjectPage objProject;
 
 	/**
 	 * Preconditions a project created (in the first row of project list)
 	 */
 	@BeforeClass
 	public void preconditions(){
-		objNewProject = new NewProjectForm();
-		objProject = new ProjectPage();
-		objDashboard = new DashboardPage();
-		objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
+		objNewProject = objDashboard.clickNewProject();
+		objProject = objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
 		objProject.clickDashboardLink();
 	}
 	
@@ -39,8 +37,10 @@ public class VerifyIfAProjectIsUpdated {
 		String projectName = "1234";
 		String iterationLength = "2";
 		String usPointScale = "Fibonacci: 0, 1, 2, 3, 5, 8, 13, 20, 40, 100";
+		objDashboard.clickUpdateProject();
 		objNewProject.updateProject(projectName,iterationLength,usPointScale );
-		Assert.assertTrue(objDashboard.getProjectNameText().contains(projectName));
+		String actualProjectName = objDashboard.getProjectNameText();
+		Assert.assertEquals(actualProjectName, projectName);
 	}
 	
 	/**

@@ -17,7 +17,7 @@ import framework.pages.project.UserStoryForm;
  *
  */
 public class VerifyIfAUserStoryIsCreated {
-	public DashboardPage objDashboard;
+	public DashboardPage objDashboard = new DashboardPage();
 	public NewProjectForm objNewProject;
 	public UserStoryForm objUserStory;
 	public ProjectPage objProject;
@@ -27,11 +27,8 @@ public class VerifyIfAUserStoryIsCreated {
 	 */
 	@BeforeClass
 	public void preconditions(){
-		objNewProject = new NewProjectForm();
-		objProject = new ProjectPage();
-		objUserStory = new UserStoryForm();
-		objDashboard = new DashboardPage();
-		objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
+		objNewProject = objDashboard.clickNewProject();
+		objProject = objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
 	}
 
 	/**
@@ -42,8 +39,7 @@ public class VerifyIfAUserStoryIsCreated {
 	public Object[][] getDataFromDataprovider(){
 		return new Object[][] {
 				{"User Story 1"},
-				{"User Story 2"},
-				{"User Story 3"}
+				{"User Story 2"}
 		};
 	}
 
@@ -53,8 +49,10 @@ public class VerifyIfAUserStoryIsCreated {
 	 */
 	@Test(dataProvider = "userStoryData")
 	public void testVerifyIfAUserStoryIsCreated(String userStoryTitle){
+		objUserStory = objProject.clickAddStoryBtn();
 		objUserStory.addNewUserStory(userStoryTitle);
-		Assert.assertTrue(objProject.getUserStoryText().contains(userStoryTitle));
+		String actualUserStoryName = objProject.getUserStoryText(); 
+		Assert.assertEquals(actualUserStoryName, userStoryTitle);
 	}
 
 	/**

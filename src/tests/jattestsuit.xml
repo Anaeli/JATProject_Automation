@@ -2,7 +2,11 @@
      <test name = "Projects">
             <classes>
                 <class name="tests.TestSuite"/>   
-                <class name="tests.VerifyIfProjectsAreCreated" />   
+                <class name="tests.VerifyIfAProjectIsDeleted" />  
+                <class name="tests.VerifyIfAProjectIsUpdated" />  
+                <class name="tests.VerifyIfAUserStoryIsCreated" /> 
+                <class name="tests.VerifyIfPlayersAreCreated" />
+                <class name="tests.VerifyIfProjectsAreCreated" />  
            </classes>
       </test>
 </suite>

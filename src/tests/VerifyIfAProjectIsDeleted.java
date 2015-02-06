@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,19 +15,18 @@ import framework.pages.project.ProjectPage;
  *
  */
 public class VerifyIfAProjectIsDeleted {
-	public DashboardPage objDashboard;
-	public NewProjectForm objCreateProject;
-	public ProjectPage objProject;
+	DashboardPage objDashboard = new DashboardPage();
+	NewProjectForm objCreateProject;
+	ProjectPage objProject;
+	boolean projectNameIsVisible = true;
 
 	/**
 	 * Preconditions a project created (in the first row of the project list)
 	 */
 	@BeforeClass
 	public void preconditions(){
-		objCreateProject = new NewProjectForm();
-		objProject = new ProjectPage();
-		objDashboard = new DashboardPage();
-		objCreateProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
+		objCreateProject = objDashboard.clickNewProject();
+		objProject = objCreateProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
 		objProject.clickDashboardLink();
 	}
 
@@ -35,23 +34,22 @@ public class VerifyIfAProjectIsDeleted {
 	 * Update the first project. 
 	 */
 	@Test
-	public void testVerifyIfAProjectIsUpdated(){
+	public void testVerifyIfAProjectIsDeleted(){
 		String projectName = objDashboard.getProjectNameText();
 		objDashboard.deleteProject();
 		Assert.assertFalse(objDashboard.getProjectNameText().contains(projectName));
+		if (!objDashboard.getProjectNameText().contains(projectName)){
+			projectNameIsVisible = false;
+		}
 	}
 
 	/**
 	 * Delete the project if it has been deleted for any reason.
 	 */
-	@AfterClass
-	public void postcondition(){
-		try{
-			if(!objDashboard.isDisplayedProjectNameText()){
-				objDashboard.deleteProject();
-			}
+	@AfterMethod
+	public void poscondition(){
+		if(projectNameIsVisible){
+			objDashboard.deleteProject();
 		}
-		catch (Exception e){
-		}	
 	}
 }

@@ -17,21 +17,18 @@ import framework.pages.project.ProjectPage;
  *
  */
 public class VerifyIfPlayersAreCreated {
-	public DashboardPage objDashboard;
-	public NewProjectForm objNewProject;
-	public PlayerForm objPlayer;
-	public ProjectPage objProject;
+	DashboardPage objDashboard = new DashboardPage();
+	NewProjectForm objNewProject;
+	PlayerForm objPlayer;
+	ProjectPage objProject;
 
 	/**
 	 * Preconditions a project created (in the first row of the project list)
 	 */
 	@BeforeClass
 	public void preconditions(){
-		objNewProject = new NewProjectForm();
-		objProject = new ProjectPage();
-		objPlayer = new PlayerForm();
-		objDashboard = new DashboardPage();
-		objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
+		objNewProject = objDashboard.clickNewProject();
+		objProject = objNewProject.createNewProject("1abc","1", "Linear: 0, 1, 2 , 3 , 4, 5, 6, 7, 8, 9, 10");
 	}
 
 	/**
@@ -43,8 +40,7 @@ public class VerifyIfPlayersAreCreated {
 	public Object[][] getDataFromDataprovider(){
 		return new Object[][] {
 				{"Player1@yopmail.com", "Team Member"},
-				{"Player2@yopmail.com", "Scrum Master"},
-				{"Player3@yopmail.com", "Product Owner"}
+				{"Player2@yopmail.com", "Scrum Master"}
 		};
 	}
 
@@ -56,9 +52,10 @@ public class VerifyIfPlayersAreCreated {
 	@Test(dataProvider="playerData")
 	public void testVerifyIfPlayersAreCreated(String emailPlayer,String rolePlayer){	
 		objPlayer = objProject.clickAddUserIcon();
-		objProject = objPlayer.addPlayer(emailPlayer, rolePlayer);
+		objPlayer.addPlayer(emailPlayer, rolePlayer);
 		objProject.pageRefresh();
-		Assert.assertTrue(objProject.getPlayerNameText().contains(emailPlayer));
+		String actualPlayerName = objProject.getPlayerNameText();
+		Assert.assertEquals(actualPlayerName, emailPlayer);
 	}
 
 	/**

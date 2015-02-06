@@ -1,4 +1,3 @@
-
 package framework.pages.project;
 
 import org.openqa.selenium.WebDriver;
@@ -20,17 +19,21 @@ public class ProjectPage {
 	WebElement nameProjectTextBox;
 	@FindBy(linkText ="DashBoard")
 	WebElement dashboardLink;
+	
 	//Expand the form to create a player
 	@FindBy( css = "span.fa.fa-user" )
 	WebElement addUserIcon;
+	
 	//To add a user story
 	@FindBy( id = "newUserStory_link" )
 	WebElement addUserStoryBtn;
+	
 	//To verify the player name 
-	@FindBy( css = "div.panel.panel-itemPlayer > div.panel-heading > div.title2.ng-binding")
+	@FindBy(xpath = "//div[2]/div[3]/div/div")
 	WebElement playerNameText;
+	
 	//To verify user story title 
-	@FindBy( xpath = "//div[contains(@class,'title ng-scope ng-binding')]")
+	@FindBy( xpath = "//div[@id='icebox']/div/div/div/div/div[3]")
 	WebElement userStoryTitleText;
 	
 	/**

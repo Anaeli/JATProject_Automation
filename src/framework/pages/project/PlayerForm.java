@@ -14,7 +14,7 @@ import framework.common.SeleniumDriverManager;
  */
 public class PlayerForm {
 	WebDriver driver;
-	public ProjectPage objProject;
+	
 	//Elements to create a Player
 	@FindBy(id = "player-emailPlayer" )
 	WebElement emailPlayerTextBox;
@@ -29,7 +29,6 @@ public class PlayerForm {
 	public PlayerForm (){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
-		objProject = new ProjectPage();
 	}
 
 	/**
@@ -70,5 +69,4 @@ public class PlayerForm {
 		setRolePlayer(rolePlayer);
 		return clickSubmitBtn();
 	}
-
 }

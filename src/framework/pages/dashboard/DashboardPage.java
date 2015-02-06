@@ -18,9 +18,11 @@ public class DashboardPage {
 	WebElement updateProjectLink;
 	@FindBy(linkText = "Delete") 
 	WebElement deleteProjectLink;
+
 	// Elements to delete a project
 	@FindBy(id = "button-0")
 	WebElement okBtn;
+
 	//Find elements to verifications
 	@FindBy(xpath ="//span[contains(@title, 'email')]")
 	WebElement userEmailText;
@@ -43,7 +45,7 @@ public class DashboardPage {
 		newProjectBtn.click();
 		return new NewProjectForm();
 	}
-	
+
 	/**
 	 * Click on "update" project link.
 	 * @return
@@ -59,7 +61,7 @@ public class DashboardPage {
 	public void clickDeleteLink(){
 		deleteProjectLink.click();
 	}
-	
+
 	/**
 	 * Click OK button in confirmation message displayed to delete a project.
 	 * @return Dashboard page
@@ -72,11 +74,10 @@ public class DashboardPage {
 	 * Delete the first project of projects list.
 	 */
 	public DashboardPage deleteProject(){
-		//xpath= "(//a[contains(text(), 'Delete')])[7])", to delete a project based in its name.
 		clickDeleteLink();
 		return clickOkBtn();
 	}
-	
+
 	/**
 	 * Return the text of user email displayed on the top right of the page.
 	 * @return user email
@@ -84,20 +85,12 @@ public class DashboardPage {
 	public String getLoginEmailText(){
 		return userEmailText.getText();
 	}
-	
+
 	/**
 	 *
 	 * @return project name of first project of the list.
 	 */
 	public String getProjectNameText(){
 		return projectNameText.getText();
-	}
-	
-	/**
-	 * Return true if project name is found in the dashboard page otherwise return false.
-	 * @return 
-	 */
-	public boolean isDisplayedProjectNameText(){
-		return projectNameText.isDisplayed();
 	}
 }
