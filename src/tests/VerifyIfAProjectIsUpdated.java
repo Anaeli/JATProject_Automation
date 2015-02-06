@@ -5,19 +5,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import framework.pages.dashboard.DashboardPage;
+import tests.common.BaseTestDashboard;
 import framework.pages.dashboard.NewProjectForm;
-import framework.pages.project.ProjectPage;
 
 /**
  * This test case verifies that a project created is updated.
  * @author Eliana Navia
  *
  */
-public class VerifyIfAProjectIsUpdated {
-	DashboardPage objDashboard = new DashboardPage();
+public class VerifyIfAProjectIsUpdated extends BaseTestDashboard {
 	NewProjectForm objNewProject;
-	ProjectPage objProject;
 
 	/**
 	 * Preconditions a project created (in the first row of project list)

@@ -20,7 +20,7 @@ import framework.util.ReadExcelFile;
  * @author Eliana Navia
  *
  */
-public class VerifyIfProjectsAreCreated {
+public class VerifyIfProjectsAreCreated{
 	DashboardPage objDashboard = new DashboardPage();
 	NewProjectForm objCreateProject;
 	ProjectPage objProject;
