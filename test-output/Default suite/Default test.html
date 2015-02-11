@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 30 13:34:53 BOT 2015</td>
+<td>Started on:</td><td>Thu Feb 05 11:00:20 BOT 2015</td>
 </tr>
-<tr><td>Total time:</td><td>48 seconds (48006 ms)</td>
+<tr><td>Total time:</td><td>14 seconds (14741 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -88,9 +88,8 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
 	at com.sun.proxy.$Proxy6.click(Unknown Source)
-	at framework.pages.dashboard.DashboardPage.clickNewProject(DashboardPage.java:40)
-	at framework.pages.dashboard.NewProjectPage.createNewProject(NewProjectPage.java:57)
-	at tests.VerifyIfAProjectIsUpdated.preconditions(VerifyIfAProjectIsUpdated.java:25)
+	at framework.pages.dashboard.DashboardPage.clickNewProject(DashboardPage.java:43)
+	at tests.VerifyIfAProjectIsUpdated.preconditions(VerifyIfAProjectIsUpdated.java:27)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -99,8 +98,10 @@ Driver info: driver.version: RemoteWebDriver
 	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:641)
-	at org.testng.TestRunner.run(TestRunner.java:609)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
@@ -129,7 +130,7 @@ Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7
 	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
 	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-	... 32 more
+	... 33 more
 Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
 	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
@@ -141,9 +142,9 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.Socket.connect(Unknown Source)
 	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
 	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:123)
-	... 46 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace136393487", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace136393487'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+	... 47 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1649320501", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1649320501'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
 Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
 System info: host: &apos;VDQADEV01-DN5OI&apos;, ip: &apos;172.20.200.16&apos;, os.name: &apos;Windows Server 2012 R2&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_25&apos;
 Driver info: driver.version: RemoteWebDriver
@@ -155,9 +156,8 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:59)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:37)
 	at com.sun.proxy.$Proxy6.click(Unknown Source)
-	at framework.pages.dashboard.DashboardPage.clickNewProject(DashboardPage.java:40)
-	at framework.pages.dashboard.NewProjectPage.createNewProject(NewProjectPage.java:57)
-	at tests.VerifyIfAProjectIsUpdated.preconditions(VerifyIfAProjectIsUpdated.java:25)
+	at framework.pages.dashboard.DashboardPage.clickNewProject(DashboardPage.java:43)
+	at tests.VerifyIfAProjectIsUpdated.preconditions(VerifyIfAProjectIsUpdated.java:27)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -166,8 +166,10 @@ Driver info: driver.version: RemoteWebDriver
 	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:641)
-	at org.testng.TestRunner.run(TestRunner.java:609)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
@@ -196,7 +198,7 @@ Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7
 	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
 	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-	... 32 more
+	... 33 more
 Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
 	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
@@ -208,10 +210,10 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.Socket.connect(Unknown Source)
 	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
 	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:123)
-	... 46 more
+	... 47 more
 </pre></div></td>
 <td>0</td>
-<td>null</td></tr>
+<td>tests.VerifyIfAProjectIsUpdated@76494737</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
@@ -224,7 +226,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 <td title='tests.VerifyIfAProjectIsUpdated.postcondition()'><b>postcondition</b><br>Test class: tests.VerifyIfAProjectIsUpdated</td>
 <td></td>
 <td>0</td>
-<td>null</td></tr>
+<td>tests.VerifyIfAProjectIsUpdated@76494737</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -237,7 +239,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 <td title='tests.VerifyIfAProjectIsUpdated.testVerifyIfAProjectIsUpdated()'><b>testVerifyIfAProjectIsUpdated</b><br>Test class: tests.VerifyIfAProjectIsUpdated</td>
 <td></td>
 <td>0</td>
-<td>tests.VerifyIfAProjectIsUpdated@6adca536</td></tr>
+<td>tests.VerifyIfAProjectIsUpdated@76494737</td></tr>
 </table><p>
 </body>
 </html>

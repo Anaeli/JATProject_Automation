@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import framework.common.SeleniumDriverManager;
 
 /**
@@ -44,8 +45,9 @@ public class Logout {
 	/**
 	 * Perform logout of the application.
 	 * @return
+	 * @throws Exception 
 	 */
-	public Login logout(){
+	public Login logout() throws Exception{
 		clickDropdown();
 		clickLogout();
 		return new Login();

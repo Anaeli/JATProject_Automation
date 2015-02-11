@@ -3,13 +3,12 @@
 <suite name="Failed suite [JATTestSuite]">
   <test name="Projects(failed)">
     <classes>
-      <class name="tests.VerifyIfPlayersAreCreated">
+      <class name="tests.VerifySearchUserStoryByTitle">
         <methods>
-          <include name="testVerifyIfPlayersAreCreated" invocation-numbers="0 1 2"/>
-          <include name="postconditions"/>
+          <include name="testVerifySearchUserStoryByTitle"/>
           <include name="preconditions"/>
         </methods>
-      </class> <!-- tests.VerifyIfPlayersAreCreated -->
+      </class> <!-- tests.VerifySearchUserStoryByTitle -->
       <class name="tests.TestSuite">
         <methods>
           <include name="init"/>

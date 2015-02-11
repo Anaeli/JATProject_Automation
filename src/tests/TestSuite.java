@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import framework.pages.Login;
 import framework.pages.Logout;
 
@@ -15,7 +16,7 @@ public class TestSuite {
 	Logout objLogout;
     	
 	@BeforeSuite
-	public void init(){
+	public void init() throws Exception{
  		String userEmail= "Eliana.Navia@fundacion-jala.org";
  		String userPassword="P@ssw0rd";		
  	    //Create Login Page object
@@ -25,7 +26,7 @@ public class TestSuite {
      }
 		
 	@AfterSuite
-    public void logout(){
+    public void logout() throws Exception{
 		objLogout = new Logout();
 		objLogout.logout();
 		objLogin.closeBrowser();

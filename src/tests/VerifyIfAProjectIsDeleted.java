@@ -1,19 +1,22 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import tests.common.BaseTestDashboard;
+import tests.util.ReportGenerate;
 
 /**
  * This test case verifies that a project created is deleted.
  * @author Eliana Navia
  *
  */
+@Listeners(ReportGenerate.class)
 public class VerifyIfAProjectIsDeleted extends BaseTestDashboard{
 	
 	/**
-	 * Update the first project. 
+	 * Delete the first project. 
 	 */
 	@Test
 	public void testVerifyIfAProjectIsDeleted(){
