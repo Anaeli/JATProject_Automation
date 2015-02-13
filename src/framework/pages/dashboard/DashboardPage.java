@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import framework.common.SeleniumDriverManager;
 
 /**
@@ -12,6 +15,8 @@ import framework.common.SeleniumDriverManager;
  */
 public class DashboardPage {
 	WebDriver driver;
+	WebDriverWait wait;
+	
 	@FindBy(xpath ="//div[2]/button")
 	WebElement newProjectBtn;
 	@FindBy(linkText = "Update") 
@@ -35,6 +40,7 @@ public class DashboardPage {
 	public DashboardPage(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
+		wait = SeleniumDriverManager.getManager().getWait();
 	}
 
 	/**
@@ -42,6 +48,7 @@ public class DashboardPage {
 	 * @return
 	 */
 	public NewProjectForm clickNewProject(){
+		wait.until(ExpectedConditions.visibilityOf(newProjectBtn));
 		newProjectBtn.click();
 		return new NewProjectForm();
 	}
@@ -67,6 +74,7 @@ public class DashboardPage {
 	 * @return Dashboard page
 	 */
 	public DashboardPage clickOkBtn(){
+		wait.until(ExpectedConditions.visibilityOf(okBtn));
 		okBtn.click();
 		return this;
 	}

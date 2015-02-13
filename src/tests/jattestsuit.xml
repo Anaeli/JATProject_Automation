@@ -1,8 +1,13 @@
-<suite name="JATTestSuite">
-     <test name = "Projects">
+<suite name = "JATTestSuite">
+<listeners>
+      <listener class-name = "org.uncommons.reportng.HTMLReporter"/>
+      <listener class-name = "org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    
+    <test name = "ProjectsChrome">
             <classes>
-                <class name="tests.TestSuite"/>   
-                <class name="tests.VerifySearchUserStoryByTitle"/>    
+                <class name = "tests.TestSuite"/>   
+                <class name = "tests.VerifyIfProjectsAreCreated"/>    
            </classes>
-      </test>
+     </test>  
 </suite>

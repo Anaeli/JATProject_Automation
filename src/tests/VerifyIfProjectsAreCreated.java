@@ -2,6 +2,8 @@ package tests;
 
 import java.io.IOException;
 
+import jxl.read.biff.BiffException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -38,18 +40,20 @@ public class VerifyIfProjectsAreCreated{
 	 * @return Object[][] where first column contains 'project name'
 	 * second column contains 'iteration length', and the third 'Point Scale'
 	 * @throws IOException
+	 * @throws BiffException 
 	 */
 	@DataProvider(name="projectData")
-	public Object[][] getDataFromXlsx() throws IOException{
+	public Object[][] getDataFromXlsx() throws IOException, BiffException{
 		
 		//Create a object of ReadExcelFile class
-		ReadExcelFile objExcelFile = new ReadExcelFile();
+		ReadExcelFile objReadExcel = new ReadExcelFile();
 		
 		//Prepare the path of excel file
-		String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources";
+		String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources\\JATDataProvider.xls";
+		String sheetName = "ProjectData";
 		
 		//Call read file method of the class to read data
-		Object[][] data =objExcelFile.readExcel(filePath,"JATDataProvider.xlsx","ProjectData");
+		Object[][] data =objReadExcel.readExcel(filePath, sheetName);
 		return data;
 	}
 

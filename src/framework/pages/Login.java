@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
+
 import framework.common.SeleniumDriverManager;
 import framework.pages.dashboard.DashboardPage;
+import framework.util.ReadJSONFile;
 
 /**
  * Form to sign in on JAT 
@@ -20,14 +23,20 @@ public class Login {
 	WebElement userPasswordTextBox;
 	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement signinBtn;
-
+	ReadJSONFile objReadJSONFile = new ReadJSONFile();
+		
 	/**
 	 * Initialize the singleton to driver manipulation. 
 	 */
+	@Parameters({"url"})
 	public Login(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
-		driver.get("http://172.20.8.22:3001");
+		//String node = "URL"; 
+		//String url = xmlFile.read(node, "url");  
+		String url = objReadJSONFile.readJSON("url");
+		//String url = PropertyLoader.loadProperty("url");
+		driver.get(url);
 	}
 
 	/**

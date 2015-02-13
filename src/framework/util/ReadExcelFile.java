@@ -1,84 +1,64 @@
 package framework.util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
-/**
- * Class to read excels files, use poi library.
- *
- */
 public class ReadExcelFile {
 
-	@SuppressWarnings("resource")
-	public Object[][] readExcel(String filePath,String fileName,String sheetName) 
-			throws IOException{
-		
-		//Create a object of File class to open xlsx file
-		File file = new File(filePath+"\\"+fileName);
-		
-		//Create an object of FileInputStream class to read excel file
-		FileInputStream inputStream = new FileInputStream(file);
-		Workbook jatWorkbook = null;
-		
-		//Find the file extension by spliting file name in substring and getting only extension name
-		String fileExtensionName = fileName.substring(fileName.indexOf("."));
-		
-		//Check condition if the file is xlsx file
-		if(fileExtensionName.equals(".xlsx")){
-			//If it is xlsx file then create object of XSSFWorkbook class
-			jatWorkbook = new XSSFWorkbook(inputStream);
+	/**
+	 * Return a map list with excel information.
+	 * @param filePath
+	 * @param sheetName
+	 * @return
+	 * @throws IOException
+	 */
+	public List<Map<String, String>> readExcelFile(String filePath, String sheetName) throws IOException {
+
+		//It provides a linked-list map(key, value) structure.
+		List<Map<String, String>> listOfMaps = new LinkedList<>() ;	
+		try {
+			Workbook workbook;
+			workbook = Workbook.getWorkbook(new File(filePath));
+			Sheet sheet = workbook.getSheet(sheetName); 
+
+			for (int row = 1; row < sheet.getRows(); row++) {
+				Map<String, String> map = new HashMap<>();
+				for (int col = 0; col < sheet.getColumns(); col++) {
+					String key = sheet.getCell(col,0).getContents();
+					String value = 	sheet.getCell(col,row).getContents();		
+					map.put(key, value);				
+				}
+				listOfMaps.add(map);	
+			}
+		} catch (BiffException e) {
+			e.printStackTrace();
 		}
-		//Check condition if the file is xls file
-		else if(fileExtensionName.equals(".xls")){
-			
-			//If it is xls file then create object of XSSFWorkbook class
-			jatWorkbook = new HSSFWorkbook(inputStream);
-		}
-		
-		//Read sheet inside the workbook by its name
-		Sheet jatSheet = jatWorkbook.getSheet(sheetName);
-		
-		//Find number of rows in excel file
-		int rowCount = jatSheet.getLastRowNum()-jatSheet.getFirstRowNum();
-		
-		//Create a loop over all the rows of excel file to read it
-		Object[][] data = new Object[rowCount+1][jatSheet.getLastRowNum()+1];
-		for (int i = 0; i < rowCount+1; i++) {
-			Row row = jatSheet.getRow(i);
-			
-			//Create a loop to print cell values in a row
-			for (int j = 0; j < row.getLastCellNum(); j++) {
-				data[i][j] = row.getCell(j).getStringCellValue();
-				
-				//Print excel data in console
-				System.out.println(row.getCell(j).getStringCellValue());
+		return listOfMaps;
+	}
+
+	public Object[][] readExcel(String filePath,String sheetName) 
+			throws IOException, BiffException{
+		Workbook workbook = Workbook.getWorkbook(new File(filePath));
+		Sheet sheet = workbook.getSheet(sheetName); 
+		int rowCount = sheet.getRows();
+		int colCount = sheet.getColumns();
+		Object[][] data = new Object[rowCount-1][colCount];
+		for (int row = 1; row < rowCount; row++) {
+			for (int col = 0; col < colCount; col++) {
+				data[row-1][col] = sheet.getCell(col,row).getContents(); 
 			}
 		}
 		return data;
 	}
-	
+}
 
-    //Main function is calling readExcel function to read data from excel file
- 
-    public static void main(String...strings) throws IOException{
- 
-    //Create a object of ReadGuru99ExcelFile class
-     ReadExcelFile objExcelFile = new ReadExcelFile();
- 
-    //Prepare the path of excel file
-     String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources";
- 
-    //Call read file method of the class to read data
-     objExcelFile.readExcel(filePath,"JATDataProvider.xlsx","ProjectData");
- 
-    }
-	
-} 
+
 

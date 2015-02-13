@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeSuite;
 
 import framework.pages.Login;
 import framework.pages.Logout;
+import framework.util.ReadJSONFile;
 
 /**
  * Perform the login and logout once in the application.
@@ -14,11 +15,12 @@ import framework.pages.Logout;
 public class TestSuite {	
 	Login objLogin;
 	Logout objLogout;
+	ReadJSONFile objReadJSONFile = new ReadJSONFile();
     	
 	@BeforeSuite
 	public void init() throws Exception{
- 		String userEmail= "Eliana.Navia@fundacion-jala.org";
- 		String userPassword="P@ssw0rd";		
+ 		String userEmail = objReadJSONFile.readJSON("email");
+ 		String userPassword = objReadJSONFile.readJSON("password");		
  	    //Create Login Page object
  	    objLogin= new Login(); 
  	    //login to application

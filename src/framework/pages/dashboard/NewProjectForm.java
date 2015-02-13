@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import framework.common.SeleniumDriverManager;
 import framework.pages.project.ProjectPage;
 
@@ -14,6 +17,7 @@ import framework.pages.project.ProjectPage;
  */
 public class NewProjectForm {
 	WebDriver driver;
+	WebDriverWait wait;
 	@FindBy(xpath = "//input[@type='text']")
 	WebElement projectNameTextBox;
 	@FindBy(xpath = "//form[@id='newProjectForm']/div/div[3]/div/select")
@@ -28,6 +32,7 @@ public class NewProjectForm {
 	 */
 	public NewProjectForm(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
+		wait = SeleniumDriverManager.getManager().getWait();
 		PageFactory.initElements(driver, this);
 	}
 
@@ -36,7 +41,7 @@ public class NewProjectForm {
 	 * @param projectName
 	 */
 	public void setProjectName(String projectName){
-		projectNameTextBox.click(); 
+		wait.until(ExpectedConditions.visibilityOf(projectNameTextBox));
 		projectNameTextBox.clear();
 		projectNameTextBox.sendKeys(projectName);
 	}
