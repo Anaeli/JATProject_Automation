@@ -1,6 +1,8 @@
 package framework.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +12,7 @@ import framework.common.SeleniumDriverManager;
 /**
  * Logout of JAT
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
 public class Logout {
 	WebDriver driver;
@@ -21,25 +23,38 @@ public class Logout {
 
 	/**
 	 * Initialize the driver and web elements. 
+	 * @throws Exception 
 	 */
-	public Logout(){
+	public Logout() throws Exception{
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
 	}
 
 	/**
-	 * Expand the drop down located in top right of the page 
-	 * under user email text.
+	 * Expand the drop down located in top right of the page under user email text.
 	 */
-	public void clickDropdown(){
+	public void clickLogoutDropdownBtn(){
+		try{
 		dropdownBtn.click();
+		}catch (NoSuchElementException e) {
+			System.out.println("Dropdow logout button has not been found." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}catch (WebDriverException e) {
+			System.out.println("Dropdow logout button is not clickable." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}
 	}
 
 	/**
 	 * Click on logout link expanded under user email text. 
 	 */
-	public void clickLogout(){
+	public void clickLogoutLink(){
+		try{
 		logoutLink.click();
+		}catch (NoSuchElementException e) {
+			System.out.println("Logout link has not been found." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}   
 	}
 
 	/**
@@ -48,8 +63,8 @@ public class Logout {
 	 * @throws Exception 
 	 */
 	public Login logout() throws Exception{
-		clickDropdown();
-		clickLogout();
+		clickLogoutDropdownBtn();
+		clickLogoutLink();
 		return new Login();
 	}
 }

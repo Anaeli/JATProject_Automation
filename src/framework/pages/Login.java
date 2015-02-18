@@ -1,10 +1,11 @@
 package framework.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Parameters;
 
 import framework.common.SeleniumDriverManager;
 import framework.pages.dashboard.DashboardPage;
@@ -13,6 +14,7 @@ import framework.util.ReadJSONFile;
 /**
  * Form to sign in on JAT 
  * @author Eliana Navia
+ * @Version 1.0     18 Feb 2015
  *
  */
 public class Login {
@@ -23,19 +25,15 @@ public class Login {
 	WebElement userPasswordTextBox;
 	@FindBy(xpath = "//input[@value='Sign in']")
 	WebElement signinBtn;
-	ReadJSONFile objReadJSONFile = new ReadJSONFile();
-		
+	ReadJSONFile objPropertyLoader = new ReadJSONFile();
+
 	/**
 	 * Initialize the singleton to driver manipulation. 
 	 */
-	@Parameters({"url"})
 	public Login(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
-		//String node = "URL"; 
-		//String url = xmlFile.read(node, "url");  
-		String url = objReadJSONFile.readJSON("url");
-		//String url = PropertyLoader.loadProperty("url");
+		String url = objPropertyLoader.readJSON("url");
 		driver.get(url);
 	}
 
@@ -43,17 +41,26 @@ public class Login {
 	 * Set user email field in the "Sign in" form.
 	 * @param email
 	 */
-	public void setUserEmail(String email){
+	public void setUserEmailTextBox(String email){
+		try{
 		userEmailTextBox.sendKeys(email);
+		}catch (NoSuchElementException e) {
+			System.out.println("User email text box has not been found." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}catch (WebDriverException e) {
+			System.out.println("User email text box is not clickable." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}
 	}
 
 	/**
 	 * Set the password field  in the "sign in" form.
 	 * @param password
 	 */
-	public void setUserPassword(String password){
+	public void setUserPasswordTextBox(String password){
 		userPasswordTextBox.sendKeys(password);
 	}
+
 	/**
 	 * Click in the "Sign in" button.
 	 * @return DashboardPage
@@ -64,23 +71,23 @@ public class Login {
 	}
 
 	/**
-	 * 
-	 * @return user email text located in top right of the page.
-	 */
-	public String getLoginEmailText(){
-		return userEmailTextBox.getText();
-	}
-
-	/**
 	 * Login into JAT, displayed dashboard page.
 	 * @param userEmail
 	 * @param userPassword
 	 * @return
 	 */
 	public DashboardPage loginIntoJAT(String userEmail, String userPassword){
-		setUserEmail(userEmail);
-		setUserPassword(userPassword);
+		setUserEmailTextBox(userEmail);
+		setUserPasswordTextBox(userPassword);
 		return clickSigninBtn();	
+	}
+
+	/**
+	 * [ASSERTIONS]login in JAT
+	 * @return user email text located in top right of the page.
+	 */
+	public String getLoginEmailText(){
+		return userEmailTextBox.getText();
 	}
 
 	/**

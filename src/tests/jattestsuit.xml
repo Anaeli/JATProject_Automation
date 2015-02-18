@@ -1,13 +1,37 @@
 <suite name = "JATTestSuite">
-<listeners>
-      <listener class-name = "org.uncommons.reportng.HTMLReporter"/>
-      <listener class-name = "org.uncommons.reportng.JUnitXMLReporter"/>
+    <listeners>
+       <listener class-name = "org.uncommons.reportng.HTMLReporter"/>
+       <listener class-name = "org.uncommons.reportng.JUnitXMLReporter"/>
+       <listener class-name = "tests.util.ReportGenerate"/>
     </listeners>
     
-    <test name = "ProjectsChrome">
-            <classes>
-                <class name = "tests.TestSuite"/>   
-                <class name = "tests.VerifyIfProjectsAreCreated"/>    
-           </classes>
+     <test name = "Project">
+       <classes>
+           <class name = "tests.TestSuite"/> 
+           <class name = "tests.project.VerifyIfProjectsAreCreated"/>		   
+           <class name = "tests.project.VerifyIfAProjectIsUpdated"/>           
+           <class name = "tests.project.VerifyIfAProjectIsDeleted"/>  
+           <class name = "tests.project.VerifyIfAErrorMessageIsDisplayedWhenProjectTitleIsEmpty"/> 		   
+       </classes>
      </test>  
-</suite>
+     
+     <test name = "Player">
+       <classes>
+           <class name = "tests.player.VerifyIfAPlayerIsCreated"/>   
+       </classes>
+     </test> 
+     	 
+	 <test name = "UserStory">
+       <classes> 
+           <class name = "tests.userstory.VerifyIfAUserStoryIsCreated"/> 
+       </classes>
+     </test>
+	 
+	 <test name = "WorkFlow">
+       <classes>
+           <class name = "tests.VerifySearchUserStoryByTitle"/>    
+       </classes>
+     </test>  
+     
+     
+ </suite>

@@ -1,24 +1,29 @@
-package tests;
+package tests.project;
+
+import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import tests.common.BaseTestDashboard;
-import tests.util.ReportGenerate;
+import tests.common.BaseTest;
 
 /**
  * This test case verifies that a project created is deleted.
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
-@Listeners(ReportGenerate.class)
-public class VerifyIfAProjectIsDeleted extends BaseTestDashboard{
+public class VerifyIfAProjectIsDeleted extends BaseTest{
 	
+	@BeforeClass
+	public void preconditions() throws IOException{
+		createNewProject();
+		objProject.clickDashboardLink();
+	}
 	/**
 	 * Delete the first project. 
 	 */
-	@Test
+	@Test(groups = { "Acceptance" })
 	public void testVerifyIfAProjectIsDeleted(){
 		String projectName = objDashboard.getProjectNameText();
 		objDashboard.deleteProject();

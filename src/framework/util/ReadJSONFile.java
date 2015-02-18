@@ -5,14 +5,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
  
 /**
- * 
+ * Read JSON file class
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
- 
 public class ReadJSONFile {
  
     public String readJSON(String data) {
+    	
         JSONParser parser = new JSONParser();
         String value = "";
         String filePath = System.getProperty("user.dir")+"/src/framework/resources/config.json";

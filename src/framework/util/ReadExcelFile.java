@@ -11,8 +11,12 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+/**
+ * Read excel file class
+ * @author Eliana Navia
+ * @Version 1.0     18 Feb 2015
+ */
 public class ReadExcelFile {
-
 	/**
 	 * Return a map list with excel information.
 	 * @param filePath
@@ -58,6 +62,7 @@ public class ReadExcelFile {
 		}
 		return data;
 	}
+
 }
 
 

@@ -8,9 +8,9 @@ import framework.pages.Logout;
 import framework.util.ReadJSONFile;
 
 /**
- * Perform the login and logout once in the application.
+ * Perform the login and logout in JAT.
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
 public class TestSuite {	
 	Login objLogin;
@@ -20,9 +20,11 @@ public class TestSuite {
 	@BeforeSuite
 	public void init() throws Exception{
  		String userEmail = objReadJSONFile.readJSON("email");
- 		String userPassword = objReadJSONFile.readJSON("password");		
+ 		String userPassword = objReadJSONFile.readJSON("password");	
+ 		
  	    //Create Login Page object
  	    objLogin= new Login(); 
+ 	    
  	    //login to application
  	    objLogin.loginIntoJAT(userEmail,userPassword);
      }

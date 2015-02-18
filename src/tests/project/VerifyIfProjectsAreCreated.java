@@ -1,4 +1,4 @@
-package tests;
+package tests.project;
 
 import java.io.IOException;
 
@@ -6,34 +6,25 @@ import jxl.read.biff.BiffException;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import tests.common.BaseTest;
 import framework.pages.dashboard.DashboardPage;
 import framework.pages.dashboard.NewProjectForm;
 import framework.pages.project.ProjectPage;
-import framework.util.ReadExcelFile;
 
 /**
  * This test case verifies that a project is created after the form is filled
  * with valid information and saved.
  * 
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
-public class VerifyIfProjectsAreCreated{
+public class VerifyIfProjectsAreCreated extends BaseTest{
 	DashboardPage objDashboard = new DashboardPage();
 	NewProjectForm objCreateProject;
 	ProjectPage objProject;
-
-	/**
-	 * Initialization of all classes used in the test
-	 */
-	@BeforeClass
-	public void preconditions (){
-
-	}
 
 	/**
 	 * Read the data of a excel file.
@@ -42,18 +33,9 @@ public class VerifyIfProjectsAreCreated{
 	 * @throws IOException
 	 * @throws BiffException 
 	 */
-	@DataProvider(name="projectData")
+	@DataProvider(name="ProjectData")
 	public Object[][] getDataFromXlsx() throws IOException, BiffException{
-		
-		//Create a object of ReadExcelFile class
-		ReadExcelFile objReadExcel = new ReadExcelFile();
-		
-		//Prepare the path of excel file
-		String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources\\JATDataProvider.xls";
-		String sheetName = "ProjectData";
-		
-		//Call read file method of the class to read data
-		Object[][] data =objReadExcel.readExcel(filePath, sheetName);
+		Object[][] data =objReadExcel.readExcel(filePath, projectSheet);
 		return data;
 	}
 
@@ -63,10 +45,10 @@ public class VerifyIfProjectsAreCreated{
 	 * @param iterationLength
 	 * @param usPointScale
 	 */
-	@Test(dataProvider="projectData")
+	@Test(dataProvider="ProjectData", groups = { "Acceptance" })
 	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, 
 			String usPointScale){
-		objCreateProject = objDashboard.clickNewProject();
+		objCreateProject = objDashboard.clickNewProjectBtn();
 		objProject = objCreateProject.createNewProject(projectName, iterationLength, usPointScale);
 		String actualProjectName = objProject.getNameProjectText();
 

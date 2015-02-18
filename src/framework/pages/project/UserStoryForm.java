@@ -10,10 +10,9 @@ import framework.common.SeleniumDriverManager;
 /**
  * Form to add, delete and update a user story.
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
 public class UserStoryForm {
-	public ProjectPage objProject;
 	WebDriver driver;
 	@FindBy(id = "us-title")
 	WebElement userStoryTitleTextBox;
@@ -26,10 +25,13 @@ public class UserStoryForm {
 	public UserStoryForm(){
 		this.driver = SeleniumDriverManager.getManager().getDriver();
 		PageFactory.initElements(driver, this);
-		objProject = new ProjectPage();
 	}
 
-	public void setUserStoryTitle(String userStoryTitle){
+	/**
+	 * Set use story title in "User Story" text box.
+	 * @param userStoryTitle
+	 */
+	public void setUserStoryTitleTextBox(String userStoryTitle){
 		userStoryTitleTextBox.clear();
 		userStoryTitleTextBox.sendKeys(userStoryTitle);
 	}
@@ -38,7 +40,7 @@ public class UserStoryForm {
 	 * Click in "Create" button, collapsed the form.
 	 * @return
 	 */
-	public ProjectPage clickCreateUSBtn(){
+	public ProjectPage clickCreateUserStoryBtn(){
 		createUSBtn.click();
 		return new ProjectPage();
 	}
@@ -49,8 +51,7 @@ public class UserStoryForm {
 	 * @return
 	 */
 	public ProjectPage addNewUserStory(String userStoryTitle){
-		objProject.clickAddStoryBtn();
-		setUserStoryTitle(userStoryTitle);
-		return clickCreateUSBtn();
+		setUserStoryTitleTextBox(userStoryTitle);
+		return clickCreateUserStoryBtn();
 	}
 }

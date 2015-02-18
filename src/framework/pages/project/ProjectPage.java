@@ -11,40 +11,36 @@ import framework.pages.dashboard.DashboardPage;
 /**
  * User story board related to a project.
  * @author Eliana Navia
- *
+ * @Version 1.0     18 Feb 2015
  */
 public class ProjectPage {
 	WebDriver driver;
+
 	@FindBy(css ="div.project-name.ng-binding")
 	WebElement nameProjectTextBox;
 	@FindBy(linkText ="DashBoard")
 	WebElement dashboardLink;
-
-	//Expand the form to create a player
 	@FindBy(css = "span.fa.fa-user")
 	WebElement addUserIcon;
-
-	//To add a user story
 	@FindBy(id = "newUserStory_link")
 	WebElement addUserStoryBtn;
+	@FindBy(xpath ="//div[2]/div[3]/div/div/div/span")
+	WebElement expandPlayerLayout;
 
-	//To search US by title
+	//Locators to search USs by title
 	@FindBy(id = "word-search-uss")
 	WebElement searchUserStoryTextBox;
 	@FindBy(css = "button.btn.btn-default")
 	WebElement searchIcon;
 
-	//To verify the player name 
-	@FindBy(xpath = "//div[2]/div[3]/div/div")
+	//To verifications
+	@FindBy(xpath = "//div[2]/div[4]/div/div/div[2]")
 	WebElement playerNameText;
-
-	//To verify user story title 
 	@FindBy(xpath = "//div[@id='icebox']/div/div/div/div/div[3]")
 	WebElement userStoryTitleText;
-
-	//To verify user story title 
 	@FindBy(xpath = "//div[8]/div/div/div[2]/div/div/div/div/div/div[3]")
 	WebElement userStoryTitleSearch;
+
 	/**
 	 * Initialize the web elements.
 	 */
@@ -54,7 +50,7 @@ public class ProjectPage {
 	}
 
 	/**
-	 * Expand the form to create a player.
+	 * Expand player form to create a new player.
 	 * @return PlayerForm 
 	 */
 	public PlayerForm clickAddUserIcon(){
@@ -63,40 +59,7 @@ public class ProjectPage {
 	}
 
 	/**
-	 * Return the project name displayed in the top.
-	 * @return
-	 */
-	public String getNameProjectText(){
-		return nameProjectTextBox.getText();
-	}
-
-	/**
-	 * Return the player name of the first layout.
-	 * @return
-	 */
-	public String getPlayerNameText(){
-		return playerNameText.getText();
-	}
-
-	/**
-	 * 
-	 * @return the user story title of the first layout.
-	 */
-	public String getUserStoryText(){
-		return userStoryTitleText.getText();
-	}
-
-	/**
-	 * Click in the dashboard link displayed in the menu on the top right.
-	 * @return
-	 */
-	public DashboardPage clickDashboardLink(){
-		dashboardLink.click();
-		return new DashboardPage();
-	}
-
-	/**
-	 * Click "+ Add Story" button that expand the form to create a US.
+	 * Click "+ Add Story" button that expand the User Story form to create a US.
 	 * @return UserStoryForm
 	 */
 	public UserStoryForm clickAddStoryBtn(){
@@ -105,26 +68,75 @@ public class ProjectPage {
 	}
 
 	/**
-	 * To search
+	 * [SEARCH USER STORY]
 	 */
 	public void setSearchUserStoryTextBox(String userStoryTitle){
 		searchUserStoryTextBox.click();
 		searchUserStoryTextBox.sendKeys(userStoryTitle);
 	}
-	
-	public ProjectPage clickSearchIcon(){
+
+	/**
+	 * [SEARCH USER STORY]
+	 */
+	public void clickSearchIcon(){
 		searchIcon.click();
-		return this;
 	}
-
-	public ProjectPage searchUserStoryByTitle(String userStoryTitle){
+	
+	/**
+	 * [SEARCH USER STORY]
+	 */
+    public void searchUserStoryByTitle(String userStoryTitle){
 		setSearchUserStoryTextBox(userStoryTitle);
-		return clickSearchIcon();
+		searchIcon.click();
 	}
 
+	public void clickExpandPlayerLayout(){
+		expandPlayerLayout.click();
+	}
+	
+	/**
+	 * Click in the dashboard link displayed in the menu on the top right.
+	 * @return Dashboard Page
+	 */
+	public DashboardPage clickDashboardLink(){
+		dashboardLink.click();
+		return new DashboardPage();
+	}
+	
+	/**
+	 *[ASSERTIONS] project creation
+	 * Return the project name displayed in the top.
+	 * @return
+	 */
+	public String getNameProjectText(){
+		return nameProjectTextBox.getText();
+	}
+
+	/**
+	 * [ASSERTIONS]player creation
+	 * Return the player name of the first layout.
+	 * @return
+	 */
+	public String getPlayerNameText(){
+		return playerNameText.getText();
+	}
+
+	/**
+	 * [ASSERTIONS] user story creation
+	 * @return the user story title of the first layout.
+	 */
+	public String getUserStoryText(){
+		return userStoryTitleText.getText();
+	}
+
+	/**
+	 * [ASSERTIONS] search USs by title
+	 * @return
+	 */
 	public String getUserStoryTitleSearchColum(){
 		return userStoryTitleSearch.getText();
 	}
+	
 	/**
 	 * Refresh the page
 	 */

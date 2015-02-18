@@ -4,74 +4,63 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Parameters;
+import org.testng.log4testng.Logger;
+
+import framework.util.ReadJSONFile;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Manages the web browser
+ * @author Eliana Navia
+ * @Version 1.0     18 Feb 2015
  */
 public class SeleniumDriverManager{
 	private static SeleniumDriverManager manager = null;
 	private WebDriver driver;
 	private WebDriverWait wait;
-
+	private ReadJSONFile objReadJSONFile = new ReadJSONFile();
 	protected SeleniumDriverManager(){
 		initializeDriver();
 	}
 
+	String message = "";
+	
 	/**
 	 * Select a browser
 	 */
 	private void initializeDriver(){
-		
-//		String filePath = System.getProperty("user.dir")+"\\lib\\chromedriver.exe";
-//		System.setProperty("webdriver.chrome.driver",filePath);
-//
-//		//create chrome instance
-//driver = new ChromeDriver();
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, 30, 100);
-		//driver.get("http://www.google.com");
-	}
 
-	/**
-	 * Select a browser
-	 */
-	@Parameters("browser")
-	public void setup(String browser) throws Exception{
+		String browser = objReadJSONFile.readJSON("browser");
+		try {
+			switch(browser){
+			case "chrome":
 
-		//Check if parameter passed from TestNG is 'firefox'
-		if(browser.equalsIgnoreCase("firefox")){
+				//set path to chromedriver.exe 
+				String filePath = System.getProperty("user.dir")+"\\lib\\chromedriver.exe";
+				System.setProperty("webdriver.chrome.driver",filePath);
 
-			//create firefox instance
-			driver = new FirefoxDriver();
-		}
+				//create chrome instance
+				driver = new ChromeDriver();
+				break;
+			case "firefox": 
 
-		//Check if parameter passed as 'chrome'
-		else if(browser.equalsIgnoreCase("chrome")){
-
-			//set path to chromedriver.exe 
-			System.setProperty("webdriver.chrome.driver","D:\\JAT\\lib\\chromedriver.exe");
-
-			//create chrome instance
-			driver = new ChromeDriver();
-		}
-		else{
-
-			//If no browser passed throw exception
-			throw new Exception("Browser is not correct");
+				//create firefox instance
+				driver = new FirefoxDriver();
+				break;
+			default: 
+				message = "invalid browser";
+				break;
+			}
+		} catch (Exception e) {
+			e.getMessage();
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 30, 100);
 	}
-	
-	
+
 	public static SeleniumDriverManager getManager(){
 		if(manager == null){
 			manager = new SeleniumDriverManager();
@@ -99,7 +88,7 @@ public class SeleniumDriverManager{
 			driver.quit();
 		}
 		catch (Exception e){
-			//Logger.getLogger(getClass()).error("Unable to quit the webdriver" , e);
+			Logger.getLogger(getClass()).error("Unable to quit the webdriver" , e);
 		}
 		driver = null;
 	}
