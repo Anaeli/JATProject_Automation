@@ -15,7 +15,7 @@ public class ReadJSONFile {
     	
         JSONParser parser = new JSONParser();
         String value = "";
-        String filePath = System.getProperty("user.dir")+"/src/framework/resources/config.json";
+        String filePath = System.getProperty("user.dir")+"/src/framework/config/config.json";
          try {
              Object obj = parser.parse(new FileReader(filePath));
              JSONObject jsonObject = (JSONObject) obj;

@@ -15,13 +15,7 @@
        </classes>
      </test>  
      
-     <test name = "Player">
-       <classes>
-           <class name = "tests.player.VerifyIfAPlayerIsCreated"/>   
-       </classes>
-     </test> 
-     	 
-	 <test name = "UserStory">
+     <test name = "UserStory">
        <classes> 
            <class name = "tests.userstory.VerifyIfAUserStoryIsCreated"/> 
        </classes>
@@ -33,5 +27,10 @@
        </classes>
      </test>  
      
-     
+     <test name = "Player">
+       <classes>
+           <class name = "tests.player.VerifyIfAPlayerIsCreated"/>   
+       </classes>
+     </test> 
+ 
  </suite>
