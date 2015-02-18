@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -30,5 +31,14 @@ public class VerifySearchUserStoryByTitle extends BaseTest{
 			String expected = objProject.getUserStoryTitleSearchColum();
 			Assert.assertEquals(actual, expected);
 		}
+	}
+	
+	/**
+	 * After the test is executed the project is deleted.
+	 */
+	@AfterClass
+	public void postcondition(){
+		objProject.clickDashboardLink();
+		objDashboard.deleteProject();
 	}
 }

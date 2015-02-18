@@ -4,44 +4,45 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+/**
+ * 
+ * @author Eliana Navia
+ * @Version 1.0     18 Feb 2015
+ */
 public class ReportGenerate implements ITestListener{
 
 	@Override
-
 	public void onStart(ITestContext arg0) {
-		System.out.println("Start Of Execution(TEST)->"+arg0.getName());
+		System.out.println("Start Of Execution(TEST)-> " + arg0.getName());
 	}
 
 	@Override
 	public void onTestStart(ITestResult arg0) {
-		System.out.println("Test Started->"+arg0.getName());
+		System.out.println("Test Started-> " + arg0.getName());
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult arg0) {
-		System.out.println("Test Pass->"+arg0.getName());
+		System.out.println("Test Pass-> " + arg0.getName());
 	}
 
 	@Override
 	public void onTestFailure(ITestResult arg0) {
-		System.out.println("Test Failed->"+arg0.getName());
+		System.out.println("Test Failed-> " + arg0.getName());
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult arg0) {
-		System.out.println("Test Skipped->"+arg0.getName());
+		System.out.println("Test Skipped-> " + arg0.getName());
 	}
 
 	@Override
 	public void onFinish(ITestContext arg0) {
-		System.out.println("END Of Execution(TEST)->"+arg0.getName());
+		System.out.println("END Of Execution(TEST)-> " + arg0.getName());
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 		// TODO Auto-generated method stub
 	}
-
-
-
 }

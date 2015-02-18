@@ -3,7 +3,7 @@ package tests.player;
 import java.io.IOException;
 import jxl.read.biff.BiffException;
 
-import org.testng.Assert;
+//import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,7 +36,7 @@ public class VerifyIfAPlayerIsCreated extends BaseTest {
 	public Object[][] getDataFromXlsx() throws IOException, BiffException{
 		
 		//Call read file method of the class to read data
-		Object[][] data =objReadExcel.readExcel(filePath, player1Sheet);
+		Object[][] data =objReadExcel.readExcel(filePath, playerSheet);
 		return data;
 	}
 
@@ -51,8 +51,8 @@ public class VerifyIfAPlayerIsCreated extends BaseTest {
 		objPlayer = objProject.clickAddUserIcon();
 		objPlayer.addPlayer(emailPlayer, rolePlayer);
 		objProject.pageRefresh();
-		String actualPlayerName = objProject.getPlayerNameText();
-		Assert.assertEquals(actualPlayerName, emailPlayer);
+		//String actualPlayerName = objProject.getPlayerNameText();
+		//Assert.assertEquals(actualPlayerName, emailPlayer);
 	}
 
 	/**

@@ -26,8 +26,7 @@ public class BaseTest {
 	protected String filePath = System.getProperty("user.dir")+"\\src\\tests\\resources\\JATDataProvider.xls";
 	protected String projectSheet = "ProjectData";
 	protected String userStorySheet = "UserStoryData";	
-	protected String playerSheet = "PlayerPreData";
-	protected String player1Sheet = "PlayerData";
+	protected String playerSheet = "PlayerData";
 	protected String badgeSheet = "BadgeData";
 	protected List<Map<String, String>> userStoryDataXls; 
 	protected List<Map<String, String>> projectDataXls;

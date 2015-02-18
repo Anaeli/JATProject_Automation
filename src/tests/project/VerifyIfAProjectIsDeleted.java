@@ -14,7 +14,8 @@ import tests.common.BaseTest;
  * @Version 1.0     18 Feb 2015
  */
 public class VerifyIfAProjectIsDeleted extends BaseTest{
-	
+	String messageError = "";
+
 	@BeforeClass
 	public void preconditions() throws IOException{
 		createNewProject();
@@ -25,10 +26,14 @@ public class VerifyIfAProjectIsDeleted extends BaseTest{
 	 */
 	@Test(groups = { "Acceptance" })
 	public void testVerifyIfAProjectIsDeleted(){
-		String projectName = objDashboard.getProjectNameText();
-		objDashboard.deleteProject();
-		
-		//Verify that project name is not displayed in the dashboard to ensure that the project does not exist.
-		Assert.assertFalse(objDashboard.getProjectNameText().contains(projectName));
+		try{
+			String projectName = objDashboard.getProjectNameText();
+			objDashboard.deleteProject();
+
+			//Verify that project name is not displayed in the dashboard to ensure that the project does not exist.
+			Assert.assertFalse(objDashboard.getProjectNameText().contains(projectName));
+		}catch (AssertionError ex) {
+			Assert.fail(messageError);
+		}
 	}
 }

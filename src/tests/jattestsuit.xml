@@ -14,8 +14,8 @@
            <class name = "tests.project.VerifyIfAErrorMessageIsDisplayedWhenProjectTitleIsEmpty"/> 		   
        </classes>
      </test>  
-     
-     <test name = "UserStory">
+        	 
+	 <test name = "UserStory">
        <classes> 
            <class name = "tests.userstory.VerifyIfAUserStoryIsCreated"/> 
        </classes>
@@ -26,11 +26,5 @@
            <class name = "tests.VerifySearchUserStoryByTitle"/>    
        </classes>
      </test>  
-     
-     <test name = "Player">
-       <classes>
-           <class name = "tests.player.VerifyIfAPlayerIsCreated"/>   
-       </classes>
-     </test> 
  
  </suite>

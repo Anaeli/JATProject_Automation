@@ -10,9 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import tests.common.BaseTest;
-import framework.pages.dashboard.DashboardPage;
-import framework.pages.dashboard.NewProjectForm;
-import framework.pages.project.ProjectPage;
 
 /**
  * This test case verifies that a project is created after the form is filled
@@ -22,9 +19,7 @@ import framework.pages.project.ProjectPage;
  * @Version 1.0     18 Feb 2015
  */
 public class VerifyIfProjectsAreCreated extends BaseTest{
-	DashboardPage objDashboard = new DashboardPage();
-	NewProjectForm objCreateProject;
-	ProjectPage objProject;
+	String messageError = "";
 
 	/**
 	 * Read the data of a excel file.
@@ -48,12 +43,19 @@ public class VerifyIfProjectsAreCreated extends BaseTest{
 	@Test(dataProvider="ProjectData", groups = { "Acceptance" })
 	public void testVerifyIfProjectsAreCreated(String projectName, String iterationLength, 
 			String usPointScale){
-		objCreateProject = objDashboard.clickNewProjectBtn();
-		objProject = objCreateProject.createNewProject(projectName, iterationLength, usPointScale);
-		String actualProjectName = objProject.getNameProjectText();
+		try{
+			objNewProject = objDashboard.clickNewProjectBtn();
+			objProject = objNewProject.createNewProject(projectName, iterationLength, usPointScale);
+			String actualProjectName = objProject.getNameProjectText();
 
-		//Verify if the project name is the same that the text displayed in the project page
-		Assert.assertEquals(actualProjectName, projectName);
+			messageError = "Projects has not been created.";
+			messageError = messageError+ "The Value "+ actualProjectName+ "is not equal to "+ projectName; 
+
+			//Verify if the project name is the same that the text displayed in the project page
+			Assert.assertEquals(actualProjectName, projectName, messageError);
+		}catch (AssertionError ex) {
+			Assert.fail(messageError);
+		}
 	}
 
 	/**
@@ -62,7 +64,7 @@ public class VerifyIfProjectsAreCreated extends BaseTest{
 	 */
 	@AfterMethod
 	public void deleteProject(){
-		
+
 		//Return to dashboard page to start the test again .
 		objDashboard = objProject.clickDashboardLink();
 		objDashboard.deleteProject();

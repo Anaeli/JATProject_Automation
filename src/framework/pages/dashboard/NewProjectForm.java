@@ -1,5 +1,6 @@
 package framework.pages.dashboard;
 
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -96,8 +97,23 @@ public class NewProjectForm {
 	 * [NEW PROJECT]
 	 * "Save" button in "New project" form, return Project page.
 	 */
-	public ProjectPage clickSaveProjectBtn(){
-		saveProjectBtn.click();	
+	public ProjectPage clickSaveProjectBtn(){	
+		try{
+			switch(browser){
+			case "chrome":
+				wait.until(ExpectedConditions.visibilityOf(saveProjectBtn));
+				saveProjectBtn.click();
+				break;
+			case "firefox": 
+				saveProjectBtn.click();
+				break;
+			}
+		}catch (NoSuchElementException e) {
+			System.out.println("'Save' button has not been found." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}catch (ElementNotVisibleException elem){
+			elem.getMessage();
+		}
 		return new ProjectPage();
 	}
 
@@ -153,8 +169,15 @@ public class NewProjectForm {
 		return clickUpdateProjectBtn(); 
 	}
 
-	public DashboardPage clickCloseProjectBtn(){
-		closeProjectBtn.click();	
+	public DashboardPage clickCloseProjectBtn(){	
+		try{
+			closeProjectBtn.click();
+		}catch (NoSuchElementException e) {
+			System.out.println("'Close' button has not been found." + e.getMessage());
+			throw new NoSuchElementException(e.getMessage());
+		}catch (ElementNotVisibleException elem){
+			elem.getMessage();
+		}
 		return new DashboardPage();
 	}
 
